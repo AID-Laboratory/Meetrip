@@ -1,8 +1,10 @@
-package com.hsuniv.aidlab.meetrip;
+package com.hsuniv.aidlab.meetrip.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.hsuniv.aidlab.meetrip.R;
 
 public class MainActivity extends AppCompatActivity {
 

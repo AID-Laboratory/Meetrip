@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#1E8BC3"
-    tools:context="mn.mobile.mugi.dailylog.Activity.LaunchScreen">
+    tools:context="com.hsu.aidlab.meetrip.Activity.LaunchScreen">
 
 
         <ImageView

@@ -180,65 +180,70 @@ public class NCube extends Service {
 
                         "{\n" +
                         "\"parentpath\": \"/userID\",\n" +
+                        "\"ctname\": \"Band\"\n" +
+                        "},\n" +
+
+                        "{\n" +
+                        "\"parentpath\": \"/userID/Band\",\n" +
                         "\"ctname\": \"" + Constants.TAG_HeartRate + "\"\n" +
                         "},\n" +
                         "{\n" +
-                        "\"parentpath\": \"/userID\",\n" +
+                        "\"parentpath\": \"/userID/Band\",\n" +
                         "\"ctname\": \"" + Constants.TAG_SkinTemperature + "\"\n" +
                         "},\n" +
                         "{\n" +
-                        "\"parentpath\": \"/userID\",\n" +
+                        "\"parentpath\": \"/userID/Band\",\n" +
                         "\"ctname\": \"" + Constants.TAG_Gsr + "\"\n" +
                         "},\n" +
                         "{\n" +
-                        "\"parentpath\": \"/userID\",\n" +
+                        "\"parentpath\": \"/userID/Band\",\n" +
                         "\"ctname\": \"" + Constants.TAG_Barometer + "\"\n" +
                         "},\n" +
                         "{\n" +
-                        "\"parentpath\": \"/userID\",\n" +
+                        "\"parentpath\": \"/userID/Band\",\n" +
                         "\"ctname\": \"" + Constants.TAG_Distance + "\"\n" +
                         "},\n" +
                         "{\n" +
-                        "\"parentpath\": \"/userID\",\n" +
+                        "\"parentpath\": \"/userID/Band\",\n" +
                         "\"ctname\": \"" + Constants.TAG_Pedometer + "\"\n" +
                         "},\n" +
                         "{\n" +
-                        "\"parentpath\": \"/userID\",\n" +
+                        "\"parentpath\": \"/userID/Band\",\n" +
                         "\"ctname\": \"" + Constants.TAG_Accelerometer + "\"\n" +
                         "},\n" +
                         "{\n" +
-                        "\"parentpath\": \"/userID\",\n" +
+                        "\"parentpath\": \"/userID/Band\",\n" +
                         "\"ctname\": \"" + Constants.TAG_Gyroscope + "\"\n" +
                         "},\n" +
 
                         "{\n" +
-                        "\"parentpath\": \"/userID\",\n" +
+                        "\"parentpath\": \"/userID/Band\",\n" +
                         "\"ctname\": \"" + Constants.TAG_UV + "\"\n" +
                         "},\n" +
                         "{\n" +
-                        "\"parentpath\": \"/userID\",\n" +
+                        "\"parentpath\": \"/userID/Band\",\n" +
                         "\"ctname\": \"" + Constants.TAG_Contact + "\"\n" +
                         "},\n" +
                         "{\n" +
-                        "\"parentpath\": \"/userID\",\n" +
+                        "\"parentpath\": \"/userID/Band\",\n" +
                         "\"ctname\": \"" + Constants.TAG_RRInterval + "\"\n" +
                         "},\n" +
                         "{\n" +
-                        "\"parentpath\": \"/userID\",\n" +
+                        "\"parentpath\": \"/userID/Band\",\n" +
                         "\"ctname\": \"" + Constants.TAG_AmbientLight + "\"\n" +
                         "},\n" +
                         "{\n" +
-                        "\"parentpath\": \"/userID\",\n" +
+                        "\"parentpath\": \"/userID/Band\",\n" +
                         "\"ctname\": \"" + Constants.TAG_Altimeter + "\"\n" +
                         "},\n" +
                         "{\n" +
-                        "\"parentpath\": \"/userID\",\n" +
+                        "\"parentpath\": \"/userID/Band\",\n" +
                         "\"ctname\": \"" + Constants.TAG_Calories + "\"\n" +
                         "}\n" +
                         "],\n" +
                         "\"sub\": [\n" +
 //                        "{\n" +
-//                        "\"parentpath\": \"/userID/actuatorTest\",\n" +
+//                        "\"parentpath\": \"/userID/Band/actuatorTest\",\n" +
 //                        "\"subname\": \"sub-ctrl\",\n" +
 //                        "\"nu\": \"mqtt://AUTOSET\"\n" +
 //                        "}\n" +

@@ -35,20 +35,20 @@ public class MSBandActivity extends Activity {
     private Button btnStart, btnConsent;
     public TextView txtStatus,
             tvBarometerPressure,
-            tvUV0,
-            tvUV1,
-            tvAltimeterFlightAscended,
-            tvAltimeterRate,
-            tvAltimeterSteppingGain,
-            tvAltimeterTotalLoss,
-            tvAltimeterTotalGain,
-            tvAltimeterSteppingLoss,
-            tvAltimeterStepsDescended,
-            tvAltimeterStepsAscended,
-            tvBarometerTemperature,
-//            tvDistanceMotionType,
-            tvAltimeterFlightDescended,
-//            tvDistanceTotalDistance,
+    //            tvUV0,
+//            tvUV1,
+//            tvAltimeterFlightAscended,
+//            tvAltimeterRate,
+//            tvAltimeterSteppingGain,
+//            tvAltimeterTotalLoss,
+//            tvAltimeterTotalGain,
+//            tvAltimeterSteppingLoss,
+//            tvAltimeterStepsDescended,
+//            tvAltimeterStepsAscended,
+    tvBarometerTemperature,
+    //            tvDistanceMotionType,
+//    tvAltimeterFlightDescended,
+    //            tvDistanceTotalDistance,
 //            tvDistancePace,
 //            tvDistanceSpeed,
 //            tvPedometer,
@@ -58,14 +58,14 @@ public class MSBandActivity extends Activity {
 //            tvGyroscopeX,
 //            tvGyroscopeY,
 //            tvGyroscopeZ,
-            tvHeartRate,
-            tvHeartRateQuality,
+//            tvContact,
+    //            tvAmbientLight,
+    //            tvCalories,
+    //            tvRRInterval,
+    tvHeartRate,
             tvSkinTemperature,
             tvGsr,
-            tvContact,
-            tvAmbientLight,
-//            tvCalories,
-            tvRRInterval;
+            tvHeartRateQuality;
     //    public DBHelper dbHelper;
     private BandClient client = null;
 
@@ -103,24 +103,24 @@ public class MSBandActivity extends Activity {
 //        tvGyroscopeY = (TextView) findViewById(R.id.tvGyroscopeY);
 //        tvGyroscopeZ = (TextView) findViewById(R.id.tvGyroscopeZ);
 
-        tvUV0 = (TextView) findViewById(R.id.tvUV0);
-        tvUV1 = (TextView) findViewById(R.id.tvUV1);
-
-        tvContact = (TextView) findViewById(R.id.tvContact);
-
-        tvAmbientLight = (TextView) findViewById(R.id.tvAmbientLight);
-
-        tvAltimeterFlightAscended = (TextView) findViewById(R.id.tvAltimeterFlightAscended);
-        tvAltimeterFlightDescended = (TextView) findViewById(R.id.tvAltimeterFlightDescended);
-        tvAltimeterRate = (TextView) findViewById(R.id.tvAltimeterRate);
-        tvAltimeterSteppingGain = (TextView) findViewById(R.id.tvAltimeterSteppingGain);
-        tvAltimeterSteppingLoss = (TextView) findViewById(R.id.tvAltimeterSteppingLoss);
-        tvAltimeterStepsAscended = (TextView) findViewById(R.id.tvAltimeterStepsAscended);
-        tvAltimeterStepsDescended = (TextView) findViewById(R.id.tvAltimeterStepsDescended);
-        tvAltimeterTotalGain = (TextView) findViewById(R.id.tvAltimeterTotalGain);
-        tvAltimeterTotalLoss = (TextView) findViewById(R.id.tvAltimeterTotalLoss);
-
-        tvRRInterval = (TextView) findViewById(R.id.tvRRInterval);
+//        tvUV0 = (TextView) findViewById(R.id.tvUV0);
+//        tvUV1 = (TextView) findViewById(R.id.tvUV1);
+//
+//        tvContact = (TextView) findViewById(R.id.tvContact);
+//
+//        tvAmbientLight = (TextView) findViewById(R.id.tvAmbientLight);
+//
+//        tvAltimeterFlightAscended = (TextView) findViewById(R.id.tvAltimeterFlightAscended);
+//        tvAltimeterFlightDescended = (TextView) findViewById(R.id.tvAltimeterFlightDescended);
+//        tvAltimeterRate = (TextView) findViewById(R.id.tvAltimeterRate);
+//        tvAltimeterSteppingGain = (TextView) findViewById(R.id.tvAltimeterSteppingGain);
+//        tvAltimeterSteppingLoss = (TextView) findViewById(R.id.tvAltimeterSteppingLoss);
+//        tvAltimeterStepsAscended = (TextView) findViewById(R.id.tvAltimeterStepsAscended);
+//        tvAltimeterStepsDescended = (TextView) findViewById(R.id.tvAltimeterStepsDescended);
+//        tvAltimeterTotalGain = (TextView) findViewById(R.id.tvAltimeterTotalGain);
+//        tvAltimeterTotalLoss = (TextView) findViewById(R.id.tvAltimeterTotalLoss);
+//
+//        tvRRInterval = (TextView) findViewById(R.id.tvRRInterval);
 //        tvCalories = (TextView) findViewById(R.id.tvCalories);
 
         btnStart = (Button) findViewById(R.id.btnStart);
@@ -159,32 +159,32 @@ public class MSBandActivity extends Activity {
         intent.putExtra("bandGsrReceiver", resultReceiver);
         intent.putExtra("bandBarometerPressureReceiver", resultReceiver);
         intent.putExtra("bandBarometerTemperatureReceiver", resultReceiver);
-        intent.putExtra("bandDistanceMotionTypeReceiver", resultReceiver);
-        intent.putExtra("bandDistanceTotalDistanceReceiver", resultReceiver);
-        intent.putExtra("bandDistancePaceReceiver", resultReceiver);
-        intent.putExtra("bandDistanceSpeedReceiver", resultReceiver);
-        intent.putExtra("bandPedometerReceiver", resultReceiver);
-        intent.putExtra("bandAccelerometerXReceiver", resultReceiver);
-        intent.putExtra("bandAccelerometerYReceiver", resultReceiver);
-        intent.putExtra("bandAccelerometerZReceiver", resultReceiver);
-        intent.putExtra("bandGyroscopeXReceiver", resultReceiver);
-        intent.putExtra("bandGyroscopeYReceiver", resultReceiver);
-        intent.putExtra("bandGyroscopeZReceiver", resultReceiver);
-        intent.putExtra("bandUvLevel0Receiver", resultReceiver);
-        intent.putExtra("bandUvLevel1Receiver", resultReceiver);
-        intent.putExtra("bandContactReceiver", resultReceiver);
-        intent.putExtra("bandRRIntervalReceiver", resultReceiver);
-        intent.putExtra("bandCaloriesReceiver", resultReceiver);
-        intent.putExtra("bandAmbientLightReceiver", resultReceiver);
-        intent.putExtra("bandAltimeterFlightAscendedReceiver", resultReceiver);
-        intent.putExtra("bandAltimeterFlightDescendedReceiver", resultReceiver);
-        intent.putExtra("bandAltimeterRateReceiver", resultReceiver);
-        intent.putExtra("bandAltimeterSteppingGainReceiver", resultReceiver);
-        intent.putExtra("bandAltimeterSteppingLossReceiver", resultReceiver);
-        intent.putExtra("bandAltimeterStepsAscendedReceiver", resultReceiver);
-        intent.putExtra("bandAltimeterStepsDescendedReceiver", resultReceiver);
-        intent.putExtra("bandAltimeterTotalGainReceiver", resultReceiver);
-        intent.putExtra("bandAltimeterTotalLossReceiver", resultReceiver);
+//        intent.putExtra("bandDistanceMotionTypeReceiver", resultReceiver);
+//        intent.putExtra("bandDistanceTotalDistanceReceiver", resultReceiver);
+//        intent.putExtra("bandDistancePaceReceiver", resultReceiver);
+//        intent.putExtra("bandDistanceSpeedReceiver", resultReceiver);
+//        intent.putExtra("bandPedometerReceiver", resultReceiver);
+//        intent.putExtra("bandAccelerometerXReceiver", resultReceiver);
+//        intent.putExtra("bandAccelerometerYReceiver", resultReceiver);
+//        intent.putExtra("bandAccelerometerZReceiver", resultReceiver);
+//        intent.putExtra("bandGyroscopeXReceiver", resultReceiver);
+//        intent.putExtra("bandGyroscopeYReceiver", resultReceiver);
+//        intent.putExtra("bandGyroscopeZReceiver", resultReceiver);
+//        intent.putExtra("bandUvLevel0Receiver", resultReceiver);
+//        intent.putExtra("bandUvLevel1Receiver", resultReceiver);
+//        intent.putExtra("bandContactReceiver", resultReceiver);
+//        intent.putExtra("bandRRIntervalReceiver", resultReceiver);
+//        intent.putExtra("bandCaloriesReceiver", resultReceiver);
+//        intent.putExtra("bandAmbientLightReceiver", resultReceiver);
+//        intent.putExtra("bandAltimeterFlightAscendedReceiver", resultReceiver);
+//        intent.putExtra("bandAltimeterFlightDescendedReceiver", resultReceiver);
+//        intent.putExtra("bandAltimeterRateReceiver", resultReceiver);
+//        intent.putExtra("bandAltimeterSteppingGainReceiver", resultReceiver);
+//        intent.putExtra("bandAltimeterSteppingLossReceiver", resultReceiver);
+//        intent.putExtra("bandAltimeterStepsAscendedReceiver", resultReceiver);
+//        intent.putExtra("bandAltimeterStepsDescendedReceiver", resultReceiver);
+//        intent.putExtra("bandAltimeterTotalGainReceiver", resultReceiver);
+//        intent.putExtra("bandAltimeterTotalLossReceiver", resultReceiver);
         intent.putExtra("bandStatusReceiver", resultReceiver);
         startService(intent);
 
@@ -224,26 +224,26 @@ public class MSBandActivity extends Activity {
 //                tvGyroscopeY.setText(resultData.getString("bandGyroscopeY"));
 //                tvGyroscopeZ.setText(resultData.getString("bandGyroscopeZ"));
 
-                tvUV0.setText(resultData.getString("bandUvLevel0"));
-                tvUV1.setText(resultData.getString("bandUvLevel1"));
+//                tvUV0.setText(resultData.getString("bandUvLevel0"));
+//                tvUV1.setText(resultData.getString("bandUvLevel1"));
+//
+//                tvContact.setText(resultData.getString("bandContact"));
+//
+//                tvRRInterval.setText(resultData.getString("bandRRInterval"));
+//
+////                tvCalories.setText(resultData.getString("bandCalories"));
+//
+//                tvAmbientLight.setText(resultData.getString("bandAmbientLight"));
 
-                tvContact.setText(resultData.getString("bandContact"));
-
-                tvRRInterval.setText(resultData.getString("bandRRInterval"));
-
-//                tvCalories.setText(resultData.getString("bandCalories"));
-
-                tvAmbientLight.setText(resultData.getString("bandAmbientLight"));
-
-                tvAltimeterFlightAscended.setText(resultData.getString("bandAltimeterFlightAscended"));
-                tvAltimeterFlightDescended.setText(resultData.getString("bandAltimeterFlightDescended"));
-                tvAltimeterRate.setText(resultData.getString("bandAltimeterRate"));
-                tvAltimeterSteppingGain.setText(resultData.getString("bandAltimeterSteppingGain"));
-                tvAltimeterSteppingLoss.setText(resultData.getString("bandAltimeterSteppingLoss"));
-                tvAltimeterStepsAscended.setText(resultData.getString("bandAltimeterStepsAscended"));
-                tvAltimeterStepsDescended.setText(resultData.getString("bandAltimeterStepsDescended"));
-                tvAltimeterTotalGain.setText(resultData.getString("bandAltimeterTotalGain"));
-                tvAltimeterTotalLoss.setText(resultData.getString("bandAltimeterTotalLoss"));
+//                tvAltimeterFlightAscended.setText(resultData.getString("bandAltimeterFlightAscended"));
+//                tvAltimeterFlightDescended.setText(resultData.getString("bandAltimeterFlightDescended"));
+//                tvAltimeterRate.setText(resultData.getString("bandAltimeterRate"));
+//                tvAltimeterSteppingGain.setText(resultData.getString("bandAltimeterSteppingGain"));
+//                tvAltimeterSteppingLoss.setText(resultData.getString("bandAltimeterSteppingLoss"));
+//                tvAltimeterStepsAscended.setText(resultData.getString("bandAltimeterStepsAscended"));
+//                tvAltimeterStepsDescended.setText(resultData.getString("bandAltimeterStepsDescended"));
+//                tvAltimeterTotalGain.setText(resultData.getString("bandAltimeterTotalGain"));
+//                tvAltimeterTotalLoss.setText(resultData.getString("bandAltimeterTotalLoss"));
 
                 txtStatus.setText(resultData.getString("bandStatus"));
 

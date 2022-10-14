@@ -56,15 +56,13 @@ public class MsBandService extends Service {
     private BandClient client = null;
     private DBHelper dbHelper;
     private String TAG = "MSBandService";
-    private String heartrate, quality , serverStatus;
-    private String skt, gsr;
-    private String pressure, temperature;
+    private String heartrate, quality , serverStatus, skt, gsr, pressure, temperature;
 //    private String motiontype, totaldistance, pace, speed;
 //    private String totalstep;
 //    private String x, y, z, x1, y1, z1;
-    private String indexlevel, indexlevel1, RR, bandcontact, light;
+//    private String indexlevel, indexlevel1, RR, bandcontact, light;
 //    private String calories;
-    private String flightascended, flightdescended, rate, steppinggain, steppingloss, stepsascended, stepsdescended, totalgain, totalloss;
+//    private String flightascended, flightdescended, rate, steppinggain, steppingloss, stepsascended, stepsdescended, totalgain, totalloss;
 
     private boolean flag = false;
     private Timer timer;
@@ -274,63 +272,63 @@ public class MsBandService extends Service {
 //        }
 //    };
 
-    private BandUVEventListener bandUVEventListener = new BandUVEventListener() {
-        @Override
-        public void onBandUVChanged(BandUVEvent bandUVEvent) {
-            if (bandUVEvent != null) {
-                indexlevel = String.valueOf(bandUVEvent.getUVIndexLevel());
-                try {
-                    indexlevel1 = String.valueOf(bandUVEvent.getUVExposureToday());
-                    String sensorData = "{\"UV\" :\"" + indexlevel + "\",\"UV today\" :" + indexlevel1  + ",\"Date\":\"" + CommonUtils.getCurDateStr() + "\"}";
-                    bandTask = new BandTask();
-                    bandTask.execute(Constants.TAG_UV, sensorData);
+//    private BandUVEventListener bandUVEventListener = new BandUVEventListener() {
+//        @Override
+//        public void onBandUVChanged(BandUVEvent bandUVEvent) {
+//            if (bandUVEvent != null) {
+//                indexlevel = String.valueOf(bandUVEvent.getUVIndexLevel());
+//                try {
+//                    indexlevel1 = String.valueOf(bandUVEvent.getUVExposureToday());
+//                    String sensorData = "{\"UV\" :\"" + indexlevel + "\",\"UV today\" :" + indexlevel1  + ",\"Date\":\"" + CommonUtils.getCurDateStr() + "\"}";
+//                    bandTask = new BandTask();
+//                    bandTask.execute(Constants.TAG_UV, sensorData);
+//
+//                    receiver = mIntent.getParcelableExtra("bandUvLevel0Receiver");
+//                    bundle.putString("bandUvLevel0", indexlevel);
+//                    receiver.send(1,bundle);
+//
+//                    receiver = mIntent.getParcelableExtra("bandUvLevel1Receiver");
+//                    bundle.putString("bandUvLevel1", indexlevel1);
+//                    receiver.send(1,bundle);
+//
+//                } catch (InvalidBandVersionException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }
+//    };
 
-                    receiver = mIntent.getParcelableExtra("bandUvLevel0Receiver");
-                    bundle.putString("bandUvLevel0", indexlevel);
-                    receiver.send(1,bundle);
+//    private BandContactEventListener bandContactEventListener = new BandContactEventListener() {
+//        @Override
+//        public void onBandContactChanged(BandContactEvent bandContactEvent) {
+//            if (bandContactEvent != null) {
+//                bandcontact = String.valueOf(bandContactEvent.getContactState());
+//                String sensorData = "{\"bandcontact\" :\"" + bandcontact  + "\",\"Date\":\"" + CommonUtils.getCurDateStr() + "\"}";
+//                bandTask = new BandTask();
+//                bandTask.execute(Constants.TAG_Contact, sensorData);
+//
+//                receiver = mIntent.getParcelableExtra("bandContactReceiver");
+//                bundle.putString("bandContact", bandcontact);
+//                receiver.send(1,bundle);
+//            }
+//        }
+//    };
 
-                    receiver = mIntent.getParcelableExtra("bandUvLevel1Receiver");
-                    bundle.putString("bandUvLevel1", indexlevel1);
-                    receiver.send(1,bundle);
-
-                } catch (InvalidBandVersionException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    };
-
-    private BandContactEventListener bandContactEventListener = new BandContactEventListener() {
-        @Override
-        public void onBandContactChanged(BandContactEvent bandContactEvent) {
-            if (bandContactEvent != null) {
-                bandcontact = String.valueOf(bandContactEvent.getContactState());
-                String sensorData = "{\"bandcontact\" :\"" + bandcontact  + "\",\"Date\":\"" + CommonUtils.getCurDateStr() + "\"}";
-                bandTask = new BandTask();
-                bandTask.execute(Constants.TAG_Contact, sensorData);
-
-                receiver = mIntent.getParcelableExtra("bandContactReceiver");
-                bundle.putString("bandContact", bandcontact);
-                receiver.send(1,bundle);
-            }
-        }
-    };
-
-    private BandRRIntervalEventListener bandRRIntervalEventListener = new BandRRIntervalEventListener() {
-        @Override
-        public void onBandRRIntervalChanged(BandRRIntervalEvent bandRRIntervalEvent) {
-            if (bandRRIntervalEvent != null) {
-                RR = String.valueOf(bandRRIntervalEvent.getInterval());
-                String sensorData = "{\"RR\" :" + RR  + ",\"Date\":\"" + CommonUtils.getCurDateStr() + "\"}";
-                bandTask = new BandTask();
-                bandTask.execute(Constants.TAG_RRInterval, sensorData);
-
-                receiver = mIntent.getParcelableExtra("bandRRIntervalReceiver");
-                bundle.putString("bandRRInterval", RR);
-                receiver.send(1,bundle);
-            }
-        }
-    };
+//    private BandRRIntervalEventListener bandRRIntervalEventListener = new BandRRIntervalEventListener() {
+//        @Override
+//        public void onBandRRIntervalChanged(BandRRIntervalEvent bandRRIntervalEvent) {
+//            if (bandRRIntervalEvent != null) {
+//                RR = String.valueOf(bandRRIntervalEvent.getInterval());
+//                String sensorData = "{\"RR\" :" + RR  + ",\"Date\":\"" + CommonUtils.getCurDateStr() + "\"}";
+//                bandTask = new BandTask();
+//                bandTask.execute(Constants.TAG_RRInterval, sensorData);
+//
+//                receiver = mIntent.getParcelableExtra("bandRRIntervalReceiver");
+//                bundle.putString("bandRRInterval", RR);
+//                receiver.send(1,bundle);
+//            }
+//        }
+//    };
 
 
     /** Calories */
@@ -351,77 +349,77 @@ public class MsBandService extends Service {
 //    };
 
 
-    private BandAmbientLightEventListener bandAmbientLightEventListener = new BandAmbientLightEventListener() {
-        @Override
-        public void onBandAmbientLightChanged(BandAmbientLightEvent bandAmbientLightEvent) {
-            if (bandAmbientLightEvent != null) {
-                light = String.valueOf(bandAmbientLightEvent.getBrightness());
-                String sensorData = "{\"light\" :" + light  + ",\"Date\":\"" + CommonUtils.getCurDateStr() + "\"}";
-                bandTask = new BandTask();
-                bandTask.execute(Constants.TAG_AmbientLight, sensorData);
+//    private BandAmbientLightEventListener bandAmbientLightEventListener = new BandAmbientLightEventListener() {
+//        @Override
+//        public void onBandAmbientLightChanged(BandAmbientLightEvent bandAmbientLightEvent) {
+//            if (bandAmbientLightEvent != null) {
+//                light = String.valueOf(bandAmbientLightEvent.getBrightness());
+//                String sensorData = "{\"light\" :" + light  + ",\"Date\":\"" + CommonUtils.getCurDateStr() + "\"}";
+//                bandTask = new BandTask();
+//                bandTask.execute(Constants.TAG_AmbientLight, sensorData);
+//
+//                receiver = mIntent.getParcelableExtra("bandAmbientLightReceiver");
+//                bundle.putString("bandAmbientLight", light);
+//                receiver.send(1,bundle);
+//            }
+//        }
+//    };
 
-                receiver = mIntent.getParcelableExtra("bandAmbientLightReceiver");
-                bundle.putString("bandAmbientLight", light);
-                receiver.send(1,bundle);
-            }
-        }
-    };
-
-    private BandAltimeterEventListener bandAltimeterEventListener = new BandAltimeterEventListener() {
-        @Override
-        public void onBandAltimeterChanged(BandAltimeterEvent bandAltimeterEvent) {
-            if (bandAltimeterEvent != null) {
-                flightascended = String.valueOf(bandAltimeterEvent.getFlightsAscended());
-                flightdescended = String.valueOf(bandAltimeterEvent.getFlightsDescended());
-                rate = String.valueOf(bandAltimeterEvent.getRate());
-                steppinggain = String.valueOf(bandAltimeterEvent.getSteppingGain());
-                steppingloss = String.valueOf(bandAltimeterEvent.getSteppingLoss());
-                stepsascended = String.valueOf(bandAltimeterEvent.getStepsAscended());
-                stepsdescended = String.valueOf(bandAltimeterEvent.getStepsDescended());
-                totalgain = String.valueOf(bandAltimeterEvent.getTotalGain());
-                totalloss = String.valueOf(bandAltimeterEvent.getTotalLoss());
-                String sensorData = "{\"Rate\" :" + rate + ",\"FlightAscended\" :" + flightascended + ",\"FlightDescended\" :" + flightdescended + ",\"Total gain\" :" + totalgain + ",\"Totalloss\" :" + totalloss + ",\"Stepping gain\" :" + steppinggain + ",\"Stepping loss\" :" + steppingloss + ",\"Date\":\"" + CommonUtils.getCurDateStr() + "\"}";
-                bandTask = new BandTask();
-                bandTask.execute(Constants.TAG_Altimeter, sensorData);
-
-                receiver = mIntent.getParcelableExtra("bandAltimeterFlightAscendedReceiver");
-                bundle.putString("bandAltimeterFlightAscended", flightascended);
-                receiver.send(1,bundle);
-
-                receiver = mIntent.getParcelableExtra("bandAltimeterFlightDescendedReceiver");
-                bundle.putString("bandAltimeterFlightDescended", flightdescended);
-                receiver.send(1,bundle);
-
-                receiver = mIntent.getParcelableExtra("bandAltimeterRateReceiver");
-                bundle.putString("bandAltimeterRate", rate);
-                receiver.send(1,bundle);
-
-                receiver = mIntent.getParcelableExtra("bandAltimeterSteppingGainReceiver");
-                bundle.putString("bandAltimeterSteppingGain", steppinggain);
-                receiver.send(1,bundle);
-
-                receiver = mIntent.getParcelableExtra("bandAltimeterSteppingLossReceiver");
-                bundle.putString("bandAltimeterSteppingLoss", steppingloss);
-                receiver.send(1,bundle);
-
-                receiver = mIntent.getParcelableExtra("bandAltimeterStepsAscendedReceiver");
-                bundle.putString("bandAltimeterStepsAscended", stepsascended);
-                receiver.send(1,bundle);
-
-                receiver = mIntent.getParcelableExtra("bandAltimeterStepsDescendedReceiver");
-                bundle.putString("bandAltimeterStepsDescended", stepsdescended);
-                receiver.send(1,bundle);
-
-                receiver = mIntent.getParcelableExtra("bandAltimeterTotalGainReceiver");
-                bundle.putString("bandAltimeterTotalGain", totalgain);
-                receiver.send(1,bundle);
-
-                receiver = mIntent.getParcelableExtra("bandAltimeterTotalLossReceiver");
-                bundle.putString("bandAltimeterTotalLoss", totalloss);
-                receiver.send(1,bundle);
-            }
-        }
-    };
+//    private BandAltimeterEventListener bandAltimeterEventListener = new BandAltimeterEventListener() {
+//        @Override
+//        public void onBandAltimeterChanged(BandAltimeterEvent bandAltimeterEvent) {
+//            if (bandAltimeterEvent != null) {
+//                flightascended = String.valueOf(bandAltimeterEvent.getFlightsAscended());
+//                flightdescended = String.valueOf(bandAltimeterEvent.getFlightsDescended());
+//                rate = String.valueOf(bandAltimeterEvent.getRate());
+//                steppinggain = String.valueOf(bandAltimeterEvent.getSteppingGain());
+//                steppingloss = String.valueOf(bandAltimeterEvent.getSteppingLoss());
+//                stepsascended = String.valueOf(bandAltimeterEvent.getStepsAscended());
+//                stepsdescended = String.valueOf(bandAltimeterEvent.getStepsDescended());
+//                totalgain = String.valueOf(bandAltimeterEvent.getTotalGain());
+//                totalloss = String.valueOf(bandAltimeterEvent.getTotalLoss());
+//                String sensorData = "{\"Rate\" :" + rate + ",\"FlightAscended\" :" + flightascended + ",\"FlightDescended\" :" + flightdescended + ",\"Total gain\" :" + totalgain + ",\"Totalloss\" :" + totalloss + ",\"Stepping gain\" :" + steppinggain + ",\"Stepping loss\" :" + steppingloss + ",\"Date\":\"" + CommonUtils.getCurDateStr() + "\"}";
+//                bandTask = new BandTask();
+//                bandTask.execute(Constants.TAG_Altimeter, sensorData);
+//
+//                receiver = mIntent.getParcelableExtra("bandAltimeterFlightAscendedReceiver");
+//                bundle.putString("bandAltimeterFlightAscended", flightascended);
+//                receiver.send(1,bundle);
+//
+//                receiver = mIntent.getParcelableExtra("bandAltimeterFlightDescendedReceiver");
+//                bundle.putString("bandAltimeterFlightDescended", flightdescended);
+//                receiver.send(1,bundle);
+//
+//                receiver = mIntent.getParcelableExtra("bandAltimeterRateReceiver");
+//                bundle.putString("bandAltimeterRate", rate);
+//                receiver.send(1,bundle);
+//
+//                receiver = mIntent.getParcelableExtra("bandAltimeterSteppingGainReceiver");
+//                bundle.putString("bandAltimeterSteppingGain", steppinggain);
+//                receiver.send(1,bundle);
+//
+//                receiver = mIntent.getParcelableExtra("bandAltimeterSteppingLossReceiver");
+//                bundle.putString("bandAltimeterSteppingLoss", steppingloss);
+//                receiver.send(1,bundle);
+//
+//                receiver = mIntent.getParcelableExtra("bandAltimeterStepsAscendedReceiver");
+//                bundle.putString("bandAltimeterStepsAscended", stepsascended);
+//                receiver.send(1,bundle);
+//
+//                receiver = mIntent.getParcelableExtra("bandAltimeterStepsDescendedReceiver");
+//                bundle.putString("bandAltimeterStepsDescended", stepsdescended);
+//                receiver.send(1,bundle);
+//
+//                receiver = mIntent.getParcelableExtra("bandAltimeterTotalGainReceiver");
+//                bundle.putString("bandAltimeterTotalGain", totalgain);
+//                receiver.send(1,bundle);
+//
+//                receiver = mIntent.getParcelableExtra("bandAltimeterTotalLossReceiver");
+//                bundle.putString("bandAltimeterTotalLoss", totalloss);
+//                receiver.send(1,bundle);
+//            }
+//        }
+//    };
 
     public class HeartRateSubscriptionTask extends AsyncTask<Void, Void, Void> {
         @Override
@@ -436,14 +434,14 @@ public class MsBandService extends Service {
 //                        client.getSensorManager().registerHeartRateEventListener(mHeartRateEventListener);
                         client.getSensorManager().registerBarometerEventListener(bandBarometerEventListener);
 //                        client.getSensorManager().registerDistanceEventListener(bandDistanceEventListener);
-                        client.getSensorManager().registerAltimeterEventListener(bandAltimeterEventListener);
+//                        client.getSensorManager().registerAltimeterEventListener(bandAltimeterEventListener);
 //                        client.getSensorManager().registerPedometerEventListener(bandPedometerEventListener);
 //                        client.getSensorManager().registerAccelerometerEventListener(bandAccelerometerEventListener, SampleRate.MS16);
 //                        client.getSensorManager().registerGyroscopeEventListener(bandGyroscopeEventListener, SampleRate.MS16);
-                        client.getSensorManager().registerUVEventListener(bandUVEventListener);
-                        client.getSensorManager().registerContactEventListener(bandContactEventListener);
-                        client.getSensorManager().registerAmbientLightEventListener(bandAmbientLightEventListener);
-                        client.getSensorManager().registerRRIntervalEventListener(bandRRIntervalEventListener);
+//                        client.getSensorManager().registerUVEventListener(bandUVEventListener);
+//                        client.getSensorManager().registerContactEventListener(bandContactEventListener);
+//                        client.getSensorManager().registerAmbientLightEventListener(bandAmbientLightEventListener);
+//                        client.getSensorManager().registerRRIntervalEventListener(bandRRIntervalEventListener);
 //                        client.getSensorManager().registerCaloriesEventListener(bandCaloriesEventListener);
 //                        client.getSensorManager().registerRRIntervalEventListener(bandRRIntervalEventListener);
 //                        client.getSensorManager().registerCaloriesEventListener(bandCaloriesEventListener);

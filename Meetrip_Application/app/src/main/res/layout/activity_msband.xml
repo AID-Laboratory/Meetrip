@@ -16,17 +16,17 @@
 
             <TextView
                 android:id="@+id/txtStep"
-                android:layout_margin="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="8dp"
                 android:text="@string/steps" />
 
 
             <TextView
-                android:layout_margin="8dp"
                 android:id="@+id/txtStatus"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="8dp"
                 android:text="" />
 
             <!-- 누군가는 ListView가 아닌 여러 레이아웃으로 만들어두는것을 좋은 시선으로 보지 않을 것이다. 하지만 난 귀찮아서 그냥 이렇게 했으니 마음에 안드는 사람은 알아서 수정하길 바란다. -->
@@ -141,357 +141,357 @@
 
             </LinearLayout>
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_margin="8dp"-->
-<!--                android:background="@drawable/round_background"-->
-<!--                android:orientation="vertical"-->
-<!--                android:padding="8dp">-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_margin="8dp"-->
+            <!--                android:background="@drawable/round_background"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:padding="8dp">-->
 
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Distance"-->
-<!--                    android:textSize="16sp"-->
-<!--                    android:textStyle="bold" />-->
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Distance"-->
+            <!--                    android:textSize="16sp"-->
+            <!--                    android:textStyle="bold" />-->
 
-<!--                <TextView-->
-<!--                    android:id="@+id/tvDistanceMotionType"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Sensor Value"-->
-<!--                    android:textSize="12sp" />-->
+            <!--                <TextView-->
+            <!--                    android:id="@+id/tvDistanceMotionType"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Sensor Value"-->
+            <!--                    android:textSize="12sp" />-->
 
-<!--                <TextView-->
-<!--                    android:id="@+id/tvDistanceTotalDistance"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Sensor Value"-->
-<!--                    android:textSize="12sp" />-->
+            <!--                <TextView-->
+            <!--                    android:id="@+id/tvDistanceTotalDistance"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Sensor Value"-->
+            <!--                    android:textSize="12sp" />-->
 
-<!--                <TextView-->
-<!--                    android:id="@+id/tvDistancePace"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Sensor Value"-->
-<!--                    android:textSize="12sp" />-->
+            <!--                <TextView-->
+            <!--                    android:id="@+id/tvDistancePace"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Sensor Value"-->
+            <!--                    android:textSize="12sp" />-->
 
-<!--                <TextView-->
-<!--                    android:id="@+id/tvDistanceSpeed"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Sensor Value"-->
-<!--                    android:textSize="12sp" />-->
+            <!--                <TextView-->
+            <!--                    android:id="@+id/tvDistanceSpeed"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Sensor Value"-->
+            <!--                    android:textSize="12sp" />-->
 
-<!--            </LinearLayout>-->
+            <!--            </LinearLayout>-->
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_margin="8dp"-->
-<!--                android:background="@drawable/round_background"-->
-<!--                android:orientation="vertical"-->
-<!--                android:padding="8dp">-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_margin="8dp"-->
+            <!--                android:background="@drawable/round_background"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:padding="8dp">-->
 
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Pedometer"-->
-<!--                    android:textSize="16sp"-->
-<!--                    android:textStyle="bold" />-->
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Pedometer"-->
+            <!--                    android:textSize="16sp"-->
+            <!--                    android:textStyle="bold" />-->
 
-<!--                <TextView-->
-<!--                    android:id="@+id/tvPedometer"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Sensor Value"-->
-<!--                    android:textSize="12sp" />-->
+            <!--                <TextView-->
+            <!--                    android:id="@+id/tvPedometer"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Sensor Value"-->
+            <!--                    android:textSize="12sp" />-->
 
-<!--            </LinearLayout>-->
+            <!--            </LinearLayout>-->
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_margin="8dp"-->
-<!--                android:background="@drawable/round_background"-->
-<!--                android:orientation="vertical"-->
-<!--                android:padding="8dp">-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_margin="8dp"-->
+            <!--                android:background="@drawable/round_background"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:padding="8dp">-->
 
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Accelerometer"-->
-<!--                    android:textSize="16sp"-->
-<!--                    android:textStyle="bold" />-->
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Accelerometer"-->
+            <!--                    android:textSize="16sp"-->
+            <!--                    android:textStyle="bold" />-->
 
-<!--                <TextView-->
-<!--                    android:id="@+id/tvAccelerometerX"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Sensor Value"-->
-<!--                    android:textSize="12sp" />-->
+            <!--                <TextView-->
+            <!--                    android:id="@+id/tvAccelerometerX"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Sensor Value"-->
+            <!--                    android:textSize="12sp" />-->
 
-<!--                <TextView-->
-<!--                    android:id="@+id/tvAccelerometerY"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Sensor Value"-->
-<!--                    android:textSize="12sp" />-->
+            <!--                <TextView-->
+            <!--                    android:id="@+id/tvAccelerometerY"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Sensor Value"-->
+            <!--                    android:textSize="12sp" />-->
 
-<!--                <TextView-->
-<!--                    android:id="@+id/tvAccelerometerZ"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Sensor Value"-->
-<!--                    android:textSize="12sp" />-->
+            <!--                <TextView-->
+            <!--                    android:id="@+id/tvAccelerometerZ"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Sensor Value"-->
+            <!--                    android:textSize="12sp" />-->
 
-<!--            </LinearLayout>-->
+            <!--            </LinearLayout>-->
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_margin="8dp"-->
-<!--                android:background="@drawable/round_background"-->
-<!--                android:orientation="vertical"-->
-<!--                android:padding="8dp">-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_margin="8dp"-->
+            <!--                android:background="@drawable/round_background"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:padding="8dp">-->
 
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Gyroscope"-->
-<!--                    android:textSize="16sp"-->
-<!--                    android:textStyle="bold" />-->
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Gyroscope"-->
+            <!--                    android:textSize="16sp"-->
+            <!--                    android:textStyle="bold" />-->
 
-<!--                <TextView-->
-<!--                    android:id="@+id/tvGyroscopeX"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Sensor Value"-->
-<!--                    android:textSize="12sp" />-->
+            <!--                <TextView-->
+            <!--                    android:id="@+id/tvGyroscopeX"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Sensor Value"-->
+            <!--                    android:textSize="12sp" />-->
 
-<!--                <TextView-->
-<!--                    android:id="@+id/tvGyroscopeY"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Sensor Value"-->
-<!--                    android:textSize="12sp" />-->
+            <!--                <TextView-->
+            <!--                    android:id="@+id/tvGyroscopeY"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Sensor Value"-->
+            <!--                    android:textSize="12sp" />-->
 
-<!--                <TextView-->
-<!--                    android:id="@+id/tvGyroscopeZ"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Sensor Value"-->
-<!--                    android:textSize="12sp" />-->
+            <!--                <TextView-->
+            <!--                    android:id="@+id/tvGyroscopeZ"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Sensor Value"-->
+            <!--                    android:textSize="12sp" />-->
 
-<!--            </LinearLayout>-->
+            <!--            </LinearLayout>-->
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:background="@drawable/round_background"
-                android:orientation="vertical"
-                android:padding="8dp">
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_margin="8dp"-->
+            <!--                android:background="@drawable/round_background"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:padding="8dp">-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="UV"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="UV"-->
+            <!--                    android:textSize="16sp"-->
+            <!--                    android:textStyle="bold" />-->
 
-                <TextView
-                    android:id="@+id/tvUV0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sensor Value"
-                    android:textSize="12sp" />
+            <!--                <TextView-->
+            <!--                    android:id="@+id/tvUV0"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Sensor Value"-->
+            <!--                    android:textSize="12sp" />-->
 
-                <TextView
-                    android:id="@+id/tvUV1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sensor Value"
-                    android:textSize="12sp" />
+            <!--                <TextView-->
+            <!--                    android:id="@+id/tvUV1"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Sensor Value"-->
+            <!--                    android:textSize="12sp" />-->
 
-            </LinearLayout>
+            <!--            </LinearLayout>-->
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:background="@drawable/round_background"
-                android:orientation="vertical"
-                android:padding="8dp">
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_margin="8dp"-->
+            <!--                android:background="@drawable/round_background"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:padding="8dp">-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Contact"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Contact"-->
+            <!--                    android:textSize="16sp"-->
+            <!--                    android:textStyle="bold" />-->
 
-                <TextView
-                    android:id="@+id/tvContact"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sensor Value"
-                    android:textSize="12sp" />
+            <!--                <TextView-->
+            <!--                    android:id="@+id/tvContact"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Sensor Value"-->
+            <!--                    android:textSize="12sp" />-->
 
-            </LinearLayout>
+            <!--            </LinearLayout>-->
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:background="@drawable/round_background"
-                android:orientation="vertical"
-                android:padding="8dp">
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_margin="8dp"-->
+            <!--                android:background="@drawable/round_background"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:padding="8dp">-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="AmbientLight"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="AmbientLight"-->
+            <!--                    android:textSize="16sp"-->
+            <!--                    android:textStyle="bold" />-->
 
-                <TextView
-                    android:id="@+id/tvAmbientLight"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sensor Value"
-                    android:textSize="12sp" />
+            <!--                <TextView-->
+            <!--                    android:id="@+id/tvAmbientLight"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Sensor Value"-->
+            <!--                    android:textSize="12sp" />-->
 
-            </LinearLayout>
+            <!--            </LinearLayout>-->
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:background="@drawable/round_background"
-                android:orientation="vertical"
-                android:padding="8dp">
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_margin="8dp"-->
+            <!--                android:background="@drawable/round_background"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:padding="8dp">-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Altimeter"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Altimeter"-->
+            <!--                    android:textSize="16sp"-->
+            <!--                    android:textStyle="bold" />-->
 
-                <TextView
-                    android:id="@+id/tvAltimeterFlightAscended"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sensor Value"
-                    android:textSize="12sp" />
+            <!--                <TextView-->
+            <!--                    android:id="@+id/tvAltimeterFlightAscended"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Sensor Value"-->
+            <!--                    android:textSize="12sp" />-->
 
-                <TextView
-                    android:id="@+id/tvAltimeterFlightDescended"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sensor Value"
-                    android:textSize="12sp" />
+            <!--                <TextView-->
+            <!--                    android:id="@+id/tvAltimeterFlightDescended"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Sensor Value"-->
+            <!--                    android:textSize="12sp" />-->
 
-                <TextView
-                    android:id="@+id/tvAltimeterRate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sensor Value"
-                    android:textSize="12sp" />
+            <!--                <TextView-->
+            <!--                    android:id="@+id/tvAltimeterRate"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Sensor Value"-->
+            <!--                    android:textSize="12sp" />-->
 
-                <TextView
-                    android:id="@+id/tvAltimeterSteppingGain"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sensor Value"
-                    android:textSize="12sp" />
+            <!--                <TextView-->
+            <!--                    android:id="@+id/tvAltimeterSteppingGain"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Sensor Value"-->
+            <!--                    android:textSize="12sp" />-->
 
-                <TextView
-                    android:id="@+id/tvAltimeterSteppingLoss"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sensor Value"
-                    android:textSize="12sp" />
+            <!--                <TextView-->
+            <!--                    android:id="@+id/tvAltimeterSteppingLoss"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Sensor Value"-->
+            <!--                    android:textSize="12sp" />-->
 
-                <TextView
-                    android:id="@+id/tvAltimeterStepsAscended"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sensor Value"
-                    android:textSize="12sp" />
+            <!--                <TextView-->
+            <!--                    android:id="@+id/tvAltimeterStepsAscended"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Sensor Value"-->
+            <!--                    android:textSize="12sp" />-->
 
-                <TextView
-                    android:id="@+id/tvAltimeterStepsDescended"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sensor Value"
-                    android:textSize="12sp" />
+            <!--                <TextView-->
+            <!--                    android:id="@+id/tvAltimeterStepsDescended"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Sensor Value"-->
+            <!--                    android:textSize="12sp" />-->
 
-                <TextView
-                    android:id="@+id/tvAltimeterTotalGain"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sensor Value"
-                    android:textSize="12sp" />
+            <!--                <TextView-->
+            <!--                    android:id="@+id/tvAltimeterTotalGain"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Sensor Value"-->
+            <!--                    android:textSize="12sp" />-->
 
-                <TextView
-                    android:id="@+id/tvAltimeterTotalLoss"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sensor Value"
-                    android:textSize="12sp" />
+            <!--                <TextView-->
+            <!--                    android:id="@+id/tvAltimeterTotalLoss"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Sensor Value"-->
+            <!--                    android:textSize="12sp" />-->
 
-            </LinearLayout>
+            <!--            </LinearLayout>-->
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:background="@drawable/round_background"
-                android:orientation="vertical"
-                android:padding="8dp">
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_margin="8dp"-->
+            <!--                android:background="@drawable/round_background"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:padding="8dp">-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="RRInterval"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="RRInterval"-->
+            <!--                    android:textSize="16sp"-->
+            <!--                    android:textStyle="bold" />-->
 
-                <TextView
-                    android:id="@+id/tvRRInterval"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sensor Value"
-                    android:textSize="12sp" />
+            <!--                <TextView-->
+            <!--                    android:id="@+id/tvRRInterval"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Sensor Value"-->
+            <!--                    android:textSize="12sp" />-->
 
-            </LinearLayout>
+            <!--            </LinearLayout>-->
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_margin="8dp"-->
-<!--                android:background="@drawable/round_background"-->
-<!--                android:orientation="vertical"-->
-<!--                android:padding="8dp">-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_margin="8dp"-->
+            <!--                android:background="@drawable/round_background"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:padding="8dp">-->
 
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Calories"-->
-<!--                    android:textSize="16sp"-->
-<!--                    android:textStyle="bold" />-->
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Calories"-->
+            <!--                    android:textSize="16sp"-->
+            <!--                    android:textStyle="bold" />-->
 
-<!--                <TextView-->
-<!--                    android:id="@+id/tvCalories"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Sensor Value"-->
-<!--                    android:textSize="12sp" />-->
+            <!--                <TextView-->
+            <!--                    android:id="@+id/tvCalories"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Sensor Value"-->
+            <!--                    android:textSize="12sp" />-->
 
-<!--            </LinearLayout>-->
+            <!--            </LinearLayout>-->
 
         </LinearLayout>
 

@@ -33,7 +33,39 @@ import com.hsu.aidlab.meetrip.Util.Constants;
 public class MSBandActivity extends Activity {
 
     private Button btnStart, btnConsent;
-    public TextView txtStatus, tvBarometerPressure, tvUV0, tvUV1,tvAltimeterFlightAscended, tvAltimeterRate, tvAltimeterSteppingGain, tvAltimeterTotalLoss, tvAltimeterTotalGain, tvAltimeterSteppingLoss, tvAltimeterStepsDescended, tvAltimeterStepsAscended, tvBarometerTemperature, tvDistanceMotionType, tvAltimeterFlightDescended, tvDistanceTotalDistance, tvDistancePace, tvDistanceSpeed, tvPedometer, tvAccelerometerX, tvAccelerometerY, tvAccelerometerZ, tvGyroscopeX, tvGyroscopeY, tvGyroscopeZ, tvHeartRate, tvHeartRateQuality, tvSkinTemperature, tvGsr, tvContact, tvAmbientLight, tvRRInterval, tvCalories;
+    public TextView txtStatus,
+            tvBarometerPressure,
+            tvUV0,
+            tvUV1,
+            tvAltimeterFlightAscended,
+            tvAltimeterRate,
+            tvAltimeterSteppingGain,
+            tvAltimeterTotalLoss,
+            tvAltimeterTotalGain,
+            tvAltimeterSteppingLoss,
+            tvAltimeterStepsDescended,
+            tvAltimeterStepsAscended,
+            tvBarometerTemperature,
+//            tvDistanceMotionType,
+            tvAltimeterFlightDescended,
+//            tvDistanceTotalDistance,
+//            tvDistancePace,
+//            tvDistanceSpeed,
+//            tvPedometer,
+//            tvAccelerometerX,
+//            tvAccelerometerY,
+//            tvAccelerometerZ,
+//            tvGyroscopeX,
+//            tvGyroscopeY,
+//            tvGyroscopeZ,
+            tvHeartRate,
+            tvHeartRateQuality,
+            tvSkinTemperature,
+            tvGsr,
+            tvContact,
+            tvAmbientLight,
+//            tvCalories,
+            tvRRInterval;
     //    public DBHelper dbHelper;
     private BandClient client = null;
 
@@ -56,20 +88,20 @@ public class MSBandActivity extends Activity {
         tvBarometerPressure = (TextView) findViewById(R.id.tvBarometerPressure);
         tvBarometerTemperature = (TextView) findViewById(R.id.tvBarometerTemperature);
 
-        tvDistanceMotionType = (TextView) findViewById(R.id.tvDistanceMotionType);
-        tvDistanceTotalDistance = (TextView) findViewById(R.id.tvDistanceTotalDistance);
-        tvDistancePace = (TextView) findViewById(R.id.tvDistancePace);
-        tvDistanceSpeed = (TextView) findViewById(R.id.tvDistanceSpeed);
+//        tvDistanceMotionType = (TextView) findViewById(R.id.tvDistanceMotionType);
+//        tvDistanceTotalDistance = (TextView) findViewById(R.id.tvDistanceTotalDistance);
+//        tvDistancePace = (TextView) findViewById(R.id.tvDistancePace);
+//        tvDistanceSpeed = (TextView) findViewById(R.id.tvDistanceSpeed);
 
-        tvPedometer = (TextView) findViewById(R.id.tvPedometer);
-
-        tvAccelerometerX = (TextView) findViewById(R.id.tvAccelerometerX);
-        tvAccelerometerY = (TextView) findViewById(R.id.tvAccelerometerY);
-        tvAccelerometerZ = (TextView) findViewById(R.id.tvAccelerometerZ);
-
-        tvGyroscopeX = (TextView) findViewById(R.id.tvGyroscopeX);
-        tvGyroscopeY = (TextView) findViewById(R.id.tvGyroscopeY);
-        tvGyroscopeZ = (TextView) findViewById(R.id.tvGyroscopeZ);
+//        tvPedometer = (TextView) findViewById(R.id.tvPedometer);
+//
+//        tvAccelerometerX = (TextView) findViewById(R.id.tvAccelerometerX);
+//        tvAccelerometerY = (TextView) findViewById(R.id.tvAccelerometerY);
+//        tvAccelerometerZ = (TextView) findViewById(R.id.tvAccelerometerZ);
+//
+//        tvGyroscopeX = (TextView) findViewById(R.id.tvGyroscopeX);
+//        tvGyroscopeY = (TextView) findViewById(R.id.tvGyroscopeY);
+//        tvGyroscopeZ = (TextView) findViewById(R.id.tvGyroscopeZ);
 
         tvUV0 = (TextView) findViewById(R.id.tvUV0);
         tvUV1 = (TextView) findViewById(R.id.tvUV1);
@@ -89,7 +121,7 @@ public class MSBandActivity extends Activity {
         tvAltimeterTotalLoss = (TextView) findViewById(R.id.tvAltimeterTotalLoss);
 
         tvRRInterval = (TextView) findViewById(R.id.tvRRInterval);
-        tvCalories = (TextView) findViewById(R.id.tvCalories);
+//        tvCalories = (TextView) findViewById(R.id.tvCalories);
 
         btnStart = (Button) findViewById(R.id.btnStart);
         btnStart.setOnClickListener(new OnClickListener() {
@@ -177,20 +209,20 @@ public class MSBandActivity extends Activity {
                 tvBarometerPressure.setText(resultData.getString("bandBarometerPressure"));
                 tvBarometerTemperature.setText(resultData.getString("bandBarometerTemperature"));
 
-                tvDistanceMotionType.setText(resultData.getString("bandDistanceMotionType"));
-                tvDistanceTotalDistance.setText(resultData.getString("bandDistanceTotalDistance"));
-                tvDistancePace.setText(resultData.getString("bandDistancePace"));
-                tvDistanceSpeed.setText(resultData.getString("bandDistanceSpeed"));
-
-                tvPedometer.setText(resultData.getString("bandPedometer"));
-
-                tvAccelerometerX.setText(resultData.getString("bandAccelerometerX"));
-                tvAccelerometerY.setText(resultData.getString("bandAccelerometerY"));
-                tvAccelerometerZ.setText(resultData.getString("bandAccelerometerZ"));
-
-                tvGyroscopeX.setText(resultData.getString("bandGyroscopeX"));
-                tvGyroscopeY.setText(resultData.getString("bandGyroscopeY"));
-                tvGyroscopeZ.setText(resultData.getString("bandGyroscopeZ"));
+//                tvDistanceMotionType.setText(resultData.getString("bandDistanceMotionType"));
+//                tvDistanceTotalDistance.setText(resultData.getString("bandDistanceTotalDistance"));
+//                tvDistancePace.setText(resultData.getString("bandDistancePace"));
+//                tvDistanceSpeed.setText(resultData.getString("bandDistanceSpeed"));
+//
+//                tvPedometer.setText(resultData.getString("bandPedometer"));
+//
+//                tvAccelerometerX.setText(resultData.getString("bandAccelerometerX"));
+//                tvAccelerometerY.setText(resultData.getString("bandAccelerometerY"));
+//                tvAccelerometerZ.setText(resultData.getString("bandAccelerometerZ"));
+//
+//                tvGyroscopeX.setText(resultData.getString("bandGyroscopeX"));
+//                tvGyroscopeY.setText(resultData.getString("bandGyroscopeY"));
+//                tvGyroscopeZ.setText(resultData.getString("bandGyroscopeZ"));
 
                 tvUV0.setText(resultData.getString("bandUvLevel0"));
                 tvUV1.setText(resultData.getString("bandUvLevel1"));
@@ -199,7 +231,7 @@ public class MSBandActivity extends Activity {
 
                 tvRRInterval.setText(resultData.getString("bandRRInterval"));
 
-                tvCalories.setText(resultData.getString("bandCalories"));
+//                tvCalories.setText(resultData.getString("bandCalories"));
 
                 tvAmbientLight.setText(resultData.getString("bandAmbientLight"));
 

@@ -14,28 +14,28 @@ import com.microsoft.band.BandInfo;
 import com.microsoft.band.ConnectionState;
 import com.microsoft.band.InvalidBandVersionException;
 import com.microsoft.band.UserConsent;
-import com.microsoft.band.sensors.BandAccelerometerEvent;
-import com.microsoft.band.sensors.BandAccelerometerEventListener;
+//import com.microsoft.band.sensors.BandAccelerometerEvent;
+//import com.microsoft.band.sensors.BandAccelerometerEventListener;
 import com.microsoft.band.sensors.BandAltimeterEvent;
 import com.microsoft.band.sensors.BandAltimeterEventListener;
 import com.microsoft.band.sensors.BandAmbientLightEvent;
 import com.microsoft.band.sensors.BandAmbientLightEventListener;
 import com.microsoft.band.sensors.BandBarometerEvent;
 import com.microsoft.band.sensors.BandBarometerEventListener;
-import com.microsoft.band.sensors.BandCaloriesEvent;
-import com.microsoft.band.sensors.BandCaloriesEventListener;
+//import com.microsoft.band.sensors.BandCaloriesEvent;
+//import com.microsoft.band.sensors.BandCaloriesEventListener;
 import com.microsoft.band.sensors.BandContactEvent;
 import com.microsoft.band.sensors.BandContactEventListener;
-import com.microsoft.band.sensors.BandDistanceEvent;
-import com.microsoft.band.sensors.BandDistanceEventListener;
+//import com.microsoft.band.sensors.BandDistanceEvent;
+//import com.microsoft.band.sensors.BandDistanceEventListener;
 import com.microsoft.band.sensors.BandGsrEvent;
 import com.microsoft.band.sensors.BandGsrEventListener;
-import com.microsoft.band.sensors.BandGyroscopeEvent;
-import com.microsoft.band.sensors.BandGyroscopeEventListener;
+//import com.microsoft.band.sensors.BandGyroscopeEvent;
+//import com.microsoft.band.sensors.BandGyroscopeEventListener;
 import com.microsoft.band.sensors.BandHeartRateEvent;
 import com.microsoft.band.sensors.BandHeartRateEventListener;
-import com.microsoft.band.sensors.BandPedometerEvent;
-import com.microsoft.band.sensors.BandPedometerEventListener;
+//import com.microsoft.band.sensors.BandPedometerEvent;
+//import com.microsoft.band.sensors.BandPedometerEventListener;
 import com.microsoft.band.sensors.BandRRIntervalEvent;
 import com.microsoft.band.sensors.BandRRIntervalEventListener;
 import com.microsoft.band.sensors.BandSkinTemperatureEvent;
@@ -59,10 +59,11 @@ public class MsBandService extends Service {
     private String heartrate, quality , serverStatus;
     private String skt, gsr;
     private String pressure, temperature;
-    private String motiontype, totaldistance, pace, speed;
-    private String totalstep;
-    private String x, y, z, x1, y1, z1;
-    private String indexlevel, indexlevel1, RR, bandcontact, light, calories;
+//    private String motiontype, totaldistance, pace, speed;
+//    private String totalstep;
+//    private String x, y, z, x1, y1, z1;
+    private String indexlevel, indexlevel1, RR, bandcontact, light;
+//    private String calories;
     private String flightascended, flightdescended, rate, steppinggain, steppingloss, stepsascended, stepsdescended, totalgain, totalloss;
 
     private boolean flag = false;
@@ -171,101 +172,107 @@ public class MsBandService extends Service {
         }
     };
 
-    private BandDistanceEventListener bandDistanceEventListener = new BandDistanceEventListener() {
-        @Override
-        public void onBandDistanceChanged(BandDistanceEvent bandDistanceEvent) {
-            if (bandDistanceEvent != null) {
-                motiontype = String.valueOf(bandDistanceEvent.getMotionType());
-                totaldistance = String.valueOf(bandDistanceEvent.getTotalDistance());
-                pace = String.valueOf(bandDistanceEvent.getPace());
-                speed = String.valueOf(bandDistanceEvent.getSpeed());
-                String sensorData = "{\"motiontype\" :\"" + motiontype + "\",\"totaldistance\" :" + totaldistance  + ",\"pace\" :" + pace  + ",\"speed\" :" + speed  + ",\"Date\":\"" + CommonUtils.getCurDateStr() + "\"}";
-                bandTask = new BandTask();
-                bandTask.execute(Constants.TAG_Distance, sensorData);
+    /** Distance */
+//    private BandDistanceEventListener bandDistanceEventListener = new BandDistanceEventListener() {
+//        @Override
+//        public void onBandDistanceChanged(BandDistanceEvent bandDistanceEvent) {
+//            if (bandDistanceEvent != null) {
+//                motiontype = String.valueOf(bandDistanceEvent.getMotionType());
+//                totaldistance = String.valueOf(bandDistanceEvent.getTotalDistance());
+//                pace = String.valueOf(bandDistanceEvent.getPace());
+//                speed = String.valueOf(bandDistanceEvent.getSpeed());
+//                String sensorData = "{\"motiontype\" :\"" + motiontype + "\",\"totaldistance\" :" + totaldistance  + ",\"pace\" :" + pace  + ",\"speed\" :" + speed  + ",\"Date\":\"" + CommonUtils.getCurDateStr() + "\"}";
+//                bandTask = new BandTask();
+//                bandTask.execute(Constants.TAG_Distance, sensorData);
+//
+//                receiver = mIntent.getParcelableExtra("bandDistanceMotionTypeReceiver");
+//                bundle.putString("bandDistanceMotionType", motiontype);
+//                receiver.send(1,bundle);
+//
+//                receiver = mIntent.getParcelableExtra("bandDistanceTotalDistanceReceiver");
+//                bundle.putString("bandDistanceTotalDistance", totaldistance);
+//                receiver.send(1,bundle);
+//
+//                receiver = mIntent.getParcelableExtra("bandDistancePaceReceiver");
+//                bundle.putString("bandDistancePace", pace);
+//                receiver.send(1,bundle);
+//
+//                receiver = mIntent.getParcelableExtra("bandDistanceSpeedReceiver");
+//                bundle.putString("bandDistanceSpeed", speed);
+//                receiver.send(1,bundle);
+//            }
+//        }
+//    };
 
-                receiver = mIntent.getParcelableExtra("bandDistanceMotionTypeReceiver");
-                bundle.putString("bandDistanceMotionType", motiontype);
-                receiver.send(1,bundle);
 
-                receiver = mIntent.getParcelableExtra("bandDistanceTotalDistanceReceiver");
-                bundle.putString("bandDistanceTotalDistance", totaldistance);
-                receiver.send(1,bundle);
+    /** Pedometer */
+//    private BandPedometerEventListener bandPedometerEventListener = new BandPedometerEventListener() {
+//        @Override
+//        public void onBandPedometerChanged(BandPedometerEvent bandPedometerEvent) {
+//            if (bandPedometerEvent != null) {
+//                totalstep = String.valueOf(bandPedometerEvent.getTotalSteps());
+//                String sensorData = "{\"totalstep\" :" + totalstep  + ",\"Date\":\"" + CommonUtils.getCurDateStr() + "\"}";
+//                bandTask = new BandTask();
+//                bandTask.execute(Constants.TAG_Pedometer, sensorData);
+//
+//                receiver = mIntent.getParcelableExtra("bandPedometerReceiver");
+//                bundle.putString("bandPedometer", totalstep);
+//                receiver.send(1,bundle);
+//            }
+//        }
+//    };
 
-                receiver = mIntent.getParcelableExtra("bandDistancePaceReceiver");
-                bundle.putString("bandDistancePace", pace);
-                receiver.send(1,bundle);
+    /** Accelerometer */
+//    private BandAccelerometerEventListener bandAccelerometerEventListener = new BandAccelerometerEventListener() {
+//        @Override
+//        public void onBandAccelerometerChanged(BandAccelerometerEvent bandAccelerometerEvent) {
+//            if (bandAccelerometerEvent != null) {
+//                x = String.valueOf(bandAccelerometerEvent.getAccelerationX());
+//                y = String.valueOf(bandAccelerometerEvent.getAccelerationY());
+//                z = String.valueOf(bandAccelerometerEvent.getAccelerationZ());
+//                String sensorData = "{\"x\" :" + x + ",\"y\" :" + y  + ",\"z\" :" + z  + ",\"Date\":\"" + CommonUtils.getCurDateStr() + "\"}";
+//                executeAsync(Constants.TAG_Accelerometer, sensorData);
+//
+//                receiver = mIntent.getParcelableExtra("bandAccelerometerXReceiver");
+//                bundle.putString("bandAccelerometerX", x);
+//                receiver.send(1,bundle);
+//
+//                receiver = mIntent.getParcelableExtra("bandAccelerometerYReceiver");
+//                bundle.putString("bandAccelerometerY", y);
+//                receiver.send(1,bundle);
+//
+//                receiver = mIntent.getParcelableExtra("bandAccelerometerZReceiver");
+//                bundle.putString("bandAccelerometerZ", z);
+//                receiver.send(1,bundle);
+//            }
+//        }
+//    };
 
-                receiver = mIntent.getParcelableExtra("bandDistanceSpeedReceiver");
-                bundle.putString("bandDistanceSpeed", speed);
-                receiver.send(1,bundle);
-            }
-        }
-    };
-    private BandPedometerEventListener bandPedometerEventListener = new BandPedometerEventListener() {
-        @Override
-        public void onBandPedometerChanged(BandPedometerEvent bandPedometerEvent) {
-            if (bandPedometerEvent != null) {
-                totalstep = String.valueOf(bandPedometerEvent.getTotalSteps());
-                String sensorData = "{\"totalstep\" :" + totalstep  + ",\"Date\":\"" + CommonUtils.getCurDateStr() + "\"}";
-                bandTask = new BandTask();
-                bandTask.execute(Constants.TAG_Pedometer, sensorData);
-
-                receiver = mIntent.getParcelableExtra("bandPedometerReceiver");
-                bundle.putString("bandPedometer", totalstep);
-                receiver.send(1,bundle);
-            }
-        }
-    };
-
-    private BandAccelerometerEventListener bandAccelerometerEventListener = new BandAccelerometerEventListener() {
-        @Override
-        public void onBandAccelerometerChanged(BandAccelerometerEvent bandAccelerometerEvent) {
-            if (bandAccelerometerEvent != null) {
-                x = String.valueOf(bandAccelerometerEvent.getAccelerationX());
-                y = String.valueOf(bandAccelerometerEvent.getAccelerationY());
-                z = String.valueOf(bandAccelerometerEvent.getAccelerationZ());
-                String sensorData = "{\"x\" :" + x + ",\"y\" :" + y  + ",\"z\" :" + z  + ",\"Date\":\"" + CommonUtils.getCurDateStr() + "\"}";
-                executeAsync(Constants.TAG_Accelerometer, sensorData);
-
-                receiver = mIntent.getParcelableExtra("bandAccelerometerXReceiver");
-                bundle.putString("bandAccelerometerX", x);
-                receiver.send(1,bundle);
-
-                receiver = mIntent.getParcelableExtra("bandAccelerometerYReceiver");
-                bundle.putString("bandAccelerometerY", y);
-                receiver.send(1,bundle);
-
-                receiver = mIntent.getParcelableExtra("bandAccelerometerZReceiver");
-                bundle.putString("bandAccelerometerZ", z);
-                receiver.send(1,bundle);
-            }
-        }
-    };
-
-    private BandGyroscopeEventListener bandGyroscopeEventListener = new BandGyroscopeEventListener() {
-        @Override
-        public void onBandGyroscopeChanged(BandGyroscopeEvent bandGyroscopeEvent) {
-            if (bandGyroscopeEvent != null) {
-                x1 = String.valueOf(bandGyroscopeEvent.getAngularVelocityX());
-                y1 = String.valueOf(bandGyroscopeEvent.getAngularVelocityY());
-                z1 = String.valueOf(bandGyroscopeEvent.getAngularVelocityZ());
-                String sensorData = "{\"x1\" :" + x1 + ",\"y1\" :" + y1  + ",\"z1\" :" + z1  + ",\"Date\":\"" + CommonUtils.getCurDateStr() + "\"}";
-                executeAsync(Constants.TAG_Gyroscope, sensorData);
-
-                receiver = mIntent.getParcelableExtra("bandGyroscopeXReceiver");
-                bundle.putString("bandGyroscopeX", x1);
-                receiver.send(1,bundle);
-
-                receiver = mIntent.getParcelableExtra("bandGyroscopeYReceiver");
-                bundle.putString("bandGyroscopeY", y1);
-                receiver.send(1,bundle);
-
-                receiver = mIntent.getParcelableExtra("bandGyroscopeZReceiver");
-                bundle.putString("bandGyroscopeZ", z1);
-                receiver.send(1,bundle);
-            }
-        }
-    };
+    /** Gyroscope */
+//    private BandGyroscopeEventListener bandGyroscopeEventListener = new BandGyroscopeEventListener() {
+//        @Override
+//        public void onBandGyroscopeChanged(BandGyroscopeEvent bandGyroscopeEvent) {
+//            if (bandGyroscopeEvent != null) {
+//                x1 = String.valueOf(bandGyroscopeEvent.getAngularVelocityX());
+//                y1 = String.valueOf(bandGyroscopeEvent.getAngularVelocityY());
+//                z1 = String.valueOf(bandGyroscopeEvent.getAngularVelocityZ());
+//                String sensorData = "{\"x1\" :" + x1 + ",\"y1\" :" + y1  + ",\"z1\" :" + z1  + ",\"Date\":\"" + CommonUtils.getCurDateStr() + "\"}";
+//                executeAsync(Constants.TAG_Gyroscope, sensorData);
+//
+//                receiver = mIntent.getParcelableExtra("bandGyroscopeXReceiver");
+//                bundle.putString("bandGyroscopeX", x1);
+//                receiver.send(1,bundle);
+//
+//                receiver = mIntent.getParcelableExtra("bandGyroscopeYReceiver");
+//                bundle.putString("bandGyroscopeY", y1);
+//                receiver.send(1,bundle);
+//
+//                receiver = mIntent.getParcelableExtra("bandGyroscopeZReceiver");
+//                bundle.putString("bandGyroscopeZ", z1);
+//                receiver.send(1,bundle);
+//            }
+//        }
+//    };
 
     private BandUVEventListener bandUVEventListener = new BandUVEventListener() {
         @Override
@@ -325,21 +332,24 @@ public class MsBandService extends Service {
         }
     };
 
-    private BandCaloriesEventListener bandCaloriesEventListener = new BandCaloriesEventListener() {
-        @Override
-        public void onBandCaloriesChanged(BandCaloriesEvent bandCaloriesEvent) {
-            if (bandCaloriesEvent != null) {
-                calories = String.valueOf(bandCaloriesEvent.getCalories());
-                String sensorData = "{\"calories\" :" + calories  + ",\"Date\":\"" + CommonUtils.getCurDateStr() + "\"}";
-                bandTask = new BandTask();
-                bandTask.execute(Constants.TAG_Calories, sensorData);
 
-                receiver = mIntent.getParcelableExtra("bandCaloriesReceiver");
-                bundle.putString("bandCalories", calories);
-                receiver.send(1,bundle);
-            }
-        }
-    };
+    /** Calories */
+//    private BandCaloriesEventListener bandCaloriesEventListener = new BandCaloriesEventListener() {
+//        @Override
+//        public void onBandCaloriesChanged(BandCaloriesEvent bandCaloriesEvent) {
+//            if (bandCaloriesEvent != null) {
+//                calories = String.valueOf(bandCaloriesEvent.getCalories());
+//                String sensorData = "{\"calories\" :" + calories  + ",\"Date\":\"" + CommonUtils.getCurDateStr() + "\"}";
+//                bandTask = new BandTask();
+//                bandTask.execute(Constants.TAG_Calories, sensorData);
+//
+//                receiver = mIntent.getParcelableExtra("bandCaloriesReceiver");
+//                bundle.putString("bandCalories", calories);
+//                receiver.send(1,bundle);
+//            }
+//        }
+//    };
+
 
     private BandAmbientLightEventListener bandAmbientLightEventListener = new BandAmbientLightEventListener() {
         @Override
@@ -425,16 +435,16 @@ public class MsBandService extends Service {
                         client.getSensorManager().registerSkinTemperatureEventListener(bandSkinTemperatureEventListener);
 //                        client.getSensorManager().registerHeartRateEventListener(mHeartRateEventListener);
                         client.getSensorManager().registerBarometerEventListener(bandBarometerEventListener);
-                        client.getSensorManager().registerDistanceEventListener(bandDistanceEventListener);
+//                        client.getSensorManager().registerDistanceEventListener(bandDistanceEventListener);
                         client.getSensorManager().registerAltimeterEventListener(bandAltimeterEventListener);
-                        client.getSensorManager().registerPedometerEventListener(bandPedometerEventListener);
-                        client.getSensorManager().registerAccelerometerEventListener(bandAccelerometerEventListener, SampleRate.MS16);
-                        client.getSensorManager().registerGyroscopeEventListener(bandGyroscopeEventListener, SampleRate.MS16);
+//                        client.getSensorManager().registerPedometerEventListener(bandPedometerEventListener);
+//                        client.getSensorManager().registerAccelerometerEventListener(bandAccelerometerEventListener, SampleRate.MS16);
+//                        client.getSensorManager().registerGyroscopeEventListener(bandGyroscopeEventListener, SampleRate.MS16);
                         client.getSensorManager().registerUVEventListener(bandUVEventListener);
                         client.getSensorManager().registerContactEventListener(bandContactEventListener);
                         client.getSensorManager().registerAmbientLightEventListener(bandAmbientLightEventListener);
                         client.getSensorManager().registerRRIntervalEventListener(bandRRIntervalEventListener);
-                        client.getSensorManager().registerCaloriesEventListener(bandCaloriesEventListener);
+//                        client.getSensorManager().registerCaloriesEventListener(bandCaloriesEventListener);
 //                        client.getSensorManager().registerRRIntervalEventListener(bandRRIntervalEventListener);
 //                        client.getSensorManager().registerCaloriesEventListener(bandCaloriesEventListener);
 
@@ -587,7 +597,7 @@ public class MsBandService extends Service {
         {
             String sensorCode = data[0];
             String sensorValues = data[1];
-            String query = "insert into sys_sensor (sensorCode, sensorValue) values ('" + sensorCode + "', '" + sensorValues + "')";
+            String query = "insert into sys_sensor (sensorCode, sensorValue) values ('Band\\" + sensorCode + "', '" + sensorValues + "')";
             dbHelper.putData(query);
             return query;
         }

@@ -3,11 +3,11 @@ package com.hsu.aidlab.meetrip.Activity;
 import static com.hsu.aidlab.meetrip.Util.CommonUtils.controlBackgroundServices;
 
 import android.app.Activity;
-import android.app.Instrumentation;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -21,11 +21,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import com.google.firebase.storage.UploadTask;
-import com.hsu.aidlab.meetrip.Model;
 import com.hsu.aidlab.meetrip.R;
 import com.hsu.aidlab.meetrip.Util.Constants;
-
-import java.io.File;
 
 public class MainActivity extends Activity implements View.OnClickListener {
 
@@ -36,6 +33,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        controlBackgroundServices(this, Constants.FLAG_START);
 
 //        controlBackgroundServices(this, Constants.FLAG_START);
 
@@ -67,20 +67,20 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     private void uploadImageToFirebaseStorage() {
 
-        String file_name = "SampleImage_001.jpg";
+        Toast toast = Toast.makeText(getApplicationContext(), "Start Upload",Toast.LENGTH_SHORT);
+        toast.show();
 
-//        FirebaseStorage storage = FirebaseStorage.getInstance("gs://my-custom-bucket");
-//        StorageReference storageRef = storage.getReference();
-//        StorageReference spaceRef = storageRef.child("images/space.jpg");
+        String file_name = "SampleImage_001.jpg";
+        String storageLocationTag = "Sample Images";
 
         FirebaseApp.initializeApp(this);
 
         FirebaseStorage reference = FirebaseStorage.getInstance();
         StorageReference storageRef = reference.getReference();
-//        StorageReference fileRef = storageRef.child("Sample_Images/" + file_name);
 
-        Uri img_file_uri = Uri.parse(Environment.getExternalStorageDirectory() + "/DCIM/Meetrip/" + file_name);
-        StorageReference fileRef = storageRef.child("Sample_Images/"+img_file_uri.getLastPathSegment());
+        Uri img_file_uri = Uri.parse("file://" + Environment.getExternalStorageDirectory() + "/DCIM/Meetrip/" + file_name);
+
+        StorageReference fileRef = storageRef.child(storageLocationTag + "/"+img_file_uri.getLastPathSegment());
 
         UploadTask uploadTask = fileRef.putFile(img_file_uri);
 
@@ -89,10 +89,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
             @Override
             public void onFailure(@NonNull Exception exception) {
                 // Handle unsuccessful uploads
+                Log.w("uploadTask Exception", String.valueOf(exception));
             }
         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                Toast toast = Toast.makeText(getApplicationContext(), "Image Upload Success",Toast.LENGTH_SHORT);
+                toast.show();
             }
         });
 

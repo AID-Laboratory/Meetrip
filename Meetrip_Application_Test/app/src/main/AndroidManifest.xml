@@ -14,6 +14,11 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+
     <application
         android:usesCleartextTraffic="true"
         android:allowBackup="true"
@@ -84,7 +89,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.hsu.aidlab.meetrip.Activity.LaunchScreen"
+            android:name="com.hsu.aidlab.meetrip.Activity.MainActivity"
             android:label="@string/title_activity_login"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -96,7 +101,7 @@
             android:stopWithTask="false"/>
 
         <activity
-            android:name="com.hsu.aidlab.meetrip.Activity.MainActivity"
+            android:name="com.hsu.aidlab.meetrip.Activity.LaunchScreen"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

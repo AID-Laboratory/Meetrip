@@ -1,7 +1,9 @@
 package com.hsu.aidlab.meetrip.Service;
 
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.IBinder;
@@ -67,11 +69,12 @@ public class MsBandService extends Service {
     private boolean flag = false;
     private Timer timer;
     private BandTask bandTask;
+    SharedPreferences sharedPreferences;
 
     Intent mIntent;
 
     Bundle bundle = new Bundle();
-    ResultReceiver receiver;
+//    ResultReceiver receiver;
 
     public MsBandService() {
     }
@@ -91,6 +94,9 @@ public class MsBandService extends Service {
             }
         }, 0 , 5 * 1000);
 
+        Context context = getBaseContext();
+        sharedPreferences = context.getSharedPreferences(Constants.PREFERENCE_KEY, Context.MODE_PRIVATE);
+
         new HeartRateConsentTask().execute();
         return START_STICKY;
     }
@@ -106,13 +112,13 @@ public class MsBandService extends Service {
                 bandTask = new BandTask();
                 bandTask.execute(Constants.TAG_HeartRate, sensorData);
 
-                receiver = mIntent.getParcelableExtra("bandHeartRateReceiver"); // (1)
-                bundle.putString("bandHeartRate", heartrate);
-                receiver.send(1,bundle); // (2)
+//                receiver = mIntent.getParcelableExtra("bandHeartRateReceiver"); // (1)
+//                bundle.putString("bandHeartRate", heartrate);
+//                receiver.send(1,bundle); // (2)
 
-                receiver = mIntent.getParcelableExtra("bandHeartQualityReceiver");
-                bundle.putString("bandHeartQuality", quality);
-                receiver.send(1,bundle);
+//                receiver = mIntent.getParcelableExtra("bandHeartQualityReceiver");
+//                bundle.putString("bandHeartQuality", quality);
+//                receiver.send(1,bundle);
 
             }
         }
@@ -127,9 +133,9 @@ public class MsBandService extends Service {
                 bandTask = new BandTask();
                 bandTask.execute(Constants.TAG_SkinTemperature, sensorData);
 
-                receiver = mIntent.getParcelableExtra("bandSkinTemperatureReceiver");
-                bundle.putString("bandSkinTemperature", skt);
-                receiver.send(1,bundle);
+//                receiver = mIntent.getParcelableExtra("bandSkinTemperatureReceiver");
+//                bundle.putString("bandSkinTemperature", skt);
+//                receiver.send(1,bundle);
             }
         }
     };
@@ -143,9 +149,9 @@ public class MsBandService extends Service {
                 bandTask = new BandTask();
                 bandTask.execute(Constants.TAG_Gsr, sensorData);
 
-                receiver = mIntent.getParcelableExtra("bandGsrReceiver");
-                bundle.putString("bandGsr", gsr);
-                receiver.send(1,bundle);
+//                receiver = mIntent.getParcelableExtra("bandGsrReceiver");
+//                bundle.putString("bandGsr", gsr);
+//                receiver.send(1,bundle);
             }
         }
     };
@@ -159,13 +165,13 @@ public class MsBandService extends Service {
                 bandTask = new BandTask();
                 bandTask.execute(Constants.TAG_Barometer, sensorData);
 
-                receiver = mIntent.getParcelableExtra("bandBarometerPressureReceiver");
-                bundle.putString("bandBarometerPressure", pressure);
-                receiver.send(1,bundle);
+//                receiver = mIntent.getParcelableExtra("bandBarometerPressureReceiver");
+//                bundle.putString("bandBarometerPressure", pressure);
+//                receiver.send(1,bundle);
 
-                receiver = mIntent.getParcelableExtra("bandBarometerTemperatureReceiver");
-                bundle.putString("bandBarometerTemperature", temperature);
-                receiver.send(1,bundle);
+//                receiver = mIntent.getParcelableExtra("bandBarometerTemperatureReceiver");
+//                bundle.putString("bandBarometerTemperature", temperature);
+//                receiver.send(1,bundle);
             }
         }
     };
@@ -455,9 +461,9 @@ public class MsBandService extends Service {
                     //appendToUI("Band isn't connected. Please make sure bluetooth is on and the band is in range.\n");
                     Log.d(TAG, "Band isn't connected. Please make sure bluetooth is on and the band is in range.\n");
 
-                    receiver = mIntent.getParcelableExtra("bandStatusReceiver");
-                    bundle.putString("bandStatus", "Band isn't connected. Please make sure bluetooth is on and the band is in range.\n");
-                    receiver.send(1,bundle);
+//                    receiver = mIntent.getParcelableExtra("bandStatusReceiver");
+//                    bundle.putString("bandStatus", "Band isn't connected. Please make sure bluetooth is on and the band is in range.\n");
+//                    receiver.send(1,bundle);
                 }
 
             } catch (BandException e) {
@@ -476,17 +482,17 @@ public class MsBandService extends Service {
                 //appendToUI(exceptionMessage);
                 Log.d(TAG, exceptionMessage);
 
-                receiver = mIntent.getParcelableExtra("bandStatusReceiver");
-                bundle.putString("bandStatus", exceptionMessage);
-                receiver.send(1,bundle);
+//                receiver = mIntent.getParcelableExtra("bandStatusReceiver");
+//                bundle.putString("bandStatus", exceptionMessage);
+//                receiver.send(1,bundle);
 
             } catch (Exception e) {
                 //appendToUI(e.getMessage());
                 Log.d(TAG, e.getMessage());
 
-                receiver = mIntent.getParcelableExtra("bandStatusReceiver");
-                bundle.putString("bandStatus", e.getMessage());
-                receiver.send(1,bundle);
+//                receiver = mIntent.getParcelableExtra("bandStatusReceiver");
+//                bundle.putString("bandStatus", e.getMessage());
+//                receiver.send(1,bundle);
             }
             return null;
         }
@@ -509,9 +515,9 @@ public class MsBandService extends Service {
                     //appendToUI("Band isn't connected. Please make sure bluetooth is on and the band is in range.\n");
                     Log.d(TAG, "Band isn't connected. Please make sure bluetooth is on and the band is in range.\n");
 
-                    receiver = mIntent.getParcelableExtra("bandStatusReceiver");
-                    bundle.putString("bandStatus", "Band isn't connected. Please make sure bluetooth is on and the band is in range.\n");
-                    receiver.send(1,bundle);
+//                    receiver = mIntent.getParcelableExtra("bandStatusReceiver");
+//                    bundle.putString("bandStatus", "Band isn't connected. Please make sure bluetooth is on and the band is in range.\n");
+//                    receiver.send(1,bundle);
                 }
             } catch (BandException e) {
                 String exceptionMessage = "";
@@ -529,17 +535,17 @@ public class MsBandService extends Service {
                 //appendToUI(exceptionMessage);
                 Log.d(TAG, exceptionMessage);
 
-                receiver = mIntent.getParcelableExtra("bandStatusReceiver");
-                bundle.putString("bandStatus", e.getMessage());
-                receiver.send(1,bundle);
+//                receiver = mIntent.getParcelableExtra("bandStatusReceiver");
+//                bundle.putString("bandStatus", e.getMessage());
+//                receiver.send(1,bundle);
 
             } catch (Exception e) {
                 //appendToUI(e.getMessage());
                 Log.d(TAG, e.getMessage());
 
-                receiver = mIntent.getParcelableExtra("bandStatusReceiver");
-                bundle.putString("bandStatus", e.getMessage());
-                receiver.send(1,bundle);
+//                receiver = mIntent.getParcelableExtra("bandStatusReceiver");
+//                bundle.putString("bandStatus", e.getMessage());
+//                receiver.send(1,bundle);
             }
             return false;
         }
@@ -558,9 +564,9 @@ public class MsBandService extends Service {
                 //appendToUI("Band isn't paired with your phone.\n");
                 Log.d(TAG, "Band isn't paired with your phone.\n");
 
-                receiver = mIntent.getParcelableExtra("bandStatusReceiver");
-                bundle.putString("bandStatus", "Band isn't paired with your phone.");
-                receiver.send(1,bundle);
+//                receiver = mIntent.getParcelableExtra("bandStatusReceiver");
+//                bundle.putString("bandStatus", "Band isn't paired with your phone.");
+//                receiver.send(1,bundle);
 
                 return false;
             }
@@ -572,9 +578,9 @@ public class MsBandService extends Service {
         //appendToUI("Band is connecting...\n");
         Log.d(TAG, "Band is connecting...\\n");
 
-        receiver = mIntent.getParcelableExtra("bandStatusReceiver");
-        bundle.putString("bandStatus", "Band is connecting...");
-        receiver.send(1,bundle);
+//        receiver = mIntent.getParcelableExtra("bandStatusReceiver");
+//        bundle.putString("bandStatus", "Band is connecting...");
+//        receiver.send(1,bundle);
 
         return ConnectionState.CONNECTED == client.connect().await();
 
@@ -595,7 +601,8 @@ public class MsBandService extends Service {
         {
             String sensorCode = data[0];
             String sensorValues = data[1];
-            String query = "insert into sys_sensor (sensorCode, sensorValue) values ('Band\\" + sensorCode + "', '" + sensorValues + "')";
+            String containorName = sharedPreferences.getString(Constants.USER_ID, "msband") + "/Band/" + sensorCode;
+            String query = "insert into sys_sensor (sensorCode, sensorValue) values ('" + containorName + "', '" + sensorValues + "')";
             dbHelper.putData(query);
             return query;
         }

@@ -38,6 +38,8 @@ public class Constants
     public static String TAG_RRInterval = "RRInterval";
     public static String TAG_Calories = "Calories";
 
+    public static String TAG_Weather = "Weather";
+
     public static String HOST = "localhost";
     public static Integer PORT = 7622;
 

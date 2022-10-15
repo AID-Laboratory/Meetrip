@@ -123,6 +123,7 @@ public class SynchronizeService extends Service
                         object.put("ctname", container);
                         object.put("con", mappedData.get(container));
                         keysToRemove.add(mappedData);
+                        Log.d("bservice_object", object.toString());
                         ja.put(object);
                     }
                 }

@@ -55,7 +55,8 @@ public class LoginActivity extends Activity {
                     String userID = String.valueOf(username.getText());
                     saveLoginInfo(userID);
 //                    startActivity(new Intent(LoginActivity.this, MSBand.class));
-                    startActivity(new Intent(LoginActivity.this, MSBandActivity.class));
+//                    startActivity(new Intent(LoginActivity.this, MSBandActivity.class));
+                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     finish();
 
                     Toast.makeText(context, "전화번호: " + userID, Toast.LENGTH_LONG).show();
@@ -154,7 +155,8 @@ public class LoginActivity extends Activity {
         if( userID != null)
         {
 //            startActivity(new Intent(LoginActivity.this, MSBand.class));
-            startActivity(new Intent(LoginActivity.this, MSBandActivity.class));
+//            startActivity(new Intent(LoginActivity.this, MSBandActivity.class));
+            startActivity(new Intent(LoginActivity.this, MainActivity.class));
             finish();
         }
     }

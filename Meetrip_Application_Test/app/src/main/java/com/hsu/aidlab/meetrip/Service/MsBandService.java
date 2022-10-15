@@ -601,8 +601,8 @@ public class MsBandService extends Service {
         {
             String sensorCode = data[0];
             String sensorValues = data[1];
-            String containorName = sharedPreferences.getString(Constants.USER_ID, "msband") + "/Band/" + sensorCode;
-            String query = "insert into sys_sensor (sensorCode, sensorValue) values ('" + containorName + "', '" + sensorValues + "')";
+//            String containorName = sharedPreferences.getString(Constants.USER_ID, "msband") + "=Band=" + sensorCode;
+            String query = "insert into sys_sensor (sensorCode, sensorValue) values ('" + sensorCode + "', '" + sensorValues + "')";
             dbHelper.putData(query);
             return query;
         }

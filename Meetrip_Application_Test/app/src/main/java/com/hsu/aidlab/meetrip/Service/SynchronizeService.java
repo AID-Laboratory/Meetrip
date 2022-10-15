@@ -48,7 +48,7 @@ public class SynchronizeService extends Service
                     }
                 }, 0 , Constants.SYNCHRONIZE_DELAY);
             }
-        }, 1000 * 20); // 2분 => 20초로 변경
+        }, 1000 * 10); // 2m => 20s => 10s
         return START_STICKY;
     }
 
@@ -69,11 +69,13 @@ public class SynchronizeService extends Service
             {
                 for(String responseType : responseMap.keySet())
                 {
+                    // Upload to TAS Success
                     Toast.makeText(getBaseContext(), responseType + responseMap.get(responseType), Toast.LENGTH_LONG).show();
                 }
             }
             else
             {
+                // Upload to TAS Fail
                 Toast.makeText(getBaseContext(), "Sync error: No internet connection", Toast.LENGTH_LONG).show();
             }
         }
@@ -119,11 +121,12 @@ public class SynchronizeService extends Service
                 {
                     for(String container : mappedData.keySet())
                     {
+                        String container_name = container.replaceAll("=","/");
                         JSONObject object = new JSONObject();
-                        object.put("ctname", container);
+                        object.put("ctname", container_name);
                         object.put("con", mappedData.get(container));
                         keysToRemove.add(mappedData);
-                        Log.d("bservice_object", object.toString());
+//                        Log.d("bservice_object", object.toString());
                         ja.put(object);
                     }
                 }

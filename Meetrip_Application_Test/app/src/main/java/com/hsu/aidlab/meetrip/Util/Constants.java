@@ -9,7 +9,7 @@ import com.hsu.aidlab.meetrip.BuildConfig;
 @TargetApi(Build.VERSION_CODES.M)
 public class Constants
 {
-    public static Integer SYNCHRONIZE_DELAY = 1000 * 30; // 3m => 30s
+    public static Integer SYNCHRONIZE_DELAY = 1000 * 3; // 3m => 30s => 3s
     public static Integer FLAG_START = 1;
     public static Integer FLAG_STOP = 0;
     public static String DB_NAME = "testDb.db";

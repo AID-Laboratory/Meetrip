@@ -141,6 +141,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         String sensorData = "{\"TAG\" :\"" + storageLocationTag + "\",\"ImgName\" :\"" + file_name + "\"}";
         String query = "insert into sys_sensor (sensorCode, sensorValue) values ('Image', '" + sensorData + "')";
         dbHelper.putData(query);
-        
+
     }
 }

@@ -634,6 +634,6 @@ public class MsBandService extends Service {
 
     @Override
     public IBinder onBind(Intent intent) {
-      return null;
+        return null;
     }
 }

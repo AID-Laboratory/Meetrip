@@ -188,7 +188,9 @@ public class CommonUtils
     {
         String[] permissions = new String[]{
                 Manifest.permission.INTERNET,
-                Manifest.permission.BLUETOOTH
+                Manifest.permission.BLUETOOTH,
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE
         };
         return permissions;
     }

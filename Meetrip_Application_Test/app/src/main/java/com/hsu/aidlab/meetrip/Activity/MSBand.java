@@ -41,7 +41,6 @@ public class MSBand extends Activity {
         setContentView(R.layout.msband);
         dbHelper = new DBHelper(this);
 
-
         controlBackgroundServices(MSBand.this, Constants.FLAG_START);
 
         txtStatus = (TextView) findViewById(R.id.txtStatus);

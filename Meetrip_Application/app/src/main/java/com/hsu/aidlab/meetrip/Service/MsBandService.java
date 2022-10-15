@@ -9,6 +9,9 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.os.ResultReceiver;
 import android.util.Log;
+import android.widget.Toast;
+
+import com.hsu.aidlab.meetrip.Activity.MainActivity;
 import com.microsoft.band.BandClient;
 import com.microsoft.band.BandClientManager;
 import com.microsoft.band.BandException;
@@ -532,6 +535,8 @@ public class MsBandService extends Service {
                         exceptionMessage = "Unknown error occured: " + e.getMessage() + "\n";
                         break;
                 }
+
+//                Toast.makeText(getApplicationContext(), "Check MS Band Consent",Toast.LENGTH_SHORT).show();
                 //appendToUI(exceptionMessage);
                 Log.d(TAG, exceptionMessage);
 
@@ -634,6 +639,6 @@ public class MsBandService extends Service {
 
     @Override
     public IBinder onBind(Intent intent) {
-      return null;
+        return null;
     }
 }

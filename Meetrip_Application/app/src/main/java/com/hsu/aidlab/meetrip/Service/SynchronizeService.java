@@ -3,8 +3,10 @@ import android.app.Service;
 import android.content.Intent;
 import android.hardware.SensorEvent;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
+import android.os.ResultReceiver;
 import android.util.Log;
 import android.widget.Toast;
 import org.json.JSONArray;
@@ -25,11 +27,20 @@ public class SynchronizeService extends Service
     private Timer timer;
     private DBHelper dbHelper;
 
+
+
+    Intent mIntent;
+    ResultReceiver receiver;
+    Bundle bundle = new Bundle();
+
+
+
     public SynchronizeService() {}
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId)
     {
+//        mIntent = intent;
 //        Toast.makeText(getBaseContext(), "sync service started..", Toast.LENGTH_SHORT).show();
         new Handler().postDelayed(new Runnable()
         {
@@ -70,13 +81,16 @@ public class SynchronizeService extends Service
                 for(String responseType : responseMap.keySet())
                 {
                     // Upload to TAS Success
-                    Toast.makeText(getBaseContext(), responseType + responseMap.get(responseType), Toast.LENGTH_LONG).show();
+//                    Toast.makeText(getBaseContext(), responseType + responseMap.get(responseType), Toast.LENGTH_LONG).show();
+//                    receiver = mIntent.getParcelableExtra("tasStatusReceiver");
+//                    bundle.putString("tasStatus", "asdfasdfasdfasdf");
+//                    receiver.send(1,bundle);
                 }
             }
             else
             {
                 // Upload to TAS Fail
-                Toast.makeText(getBaseContext(), "Sync error: No internet connection", Toast.LENGTH_LONG).show();
+                Toast.makeText(getBaseContext(), "Sync error: Check internet connection", Toast.LENGTH_LONG).show();
             }
         }
     }

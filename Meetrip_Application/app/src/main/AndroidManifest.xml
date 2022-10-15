@@ -80,19 +80,17 @@
         <activity
             android:name="com.hsu.aidlab.meetrip.Activity.MSBandActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
             android:name="com.hsu.aidlab.meetrip.Activity.LoginActivity"
             android:label="@string/title_activity_login"
-            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.hsu.aidlab.meetrip.Activity.MainActivity"
             android:label="@string/title_activity_login"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar.NoNotiBar" />
 
         <service
             android:name="com.hsu.aidlab.meetrip.Service.SynchronizeService"
@@ -102,7 +100,6 @@
 
         <activity
             android:name="com.hsu.aidlab.meetrip.Activity.LaunchScreen"
-            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

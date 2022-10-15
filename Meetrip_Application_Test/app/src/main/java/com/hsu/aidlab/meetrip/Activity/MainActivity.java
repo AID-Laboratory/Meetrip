@@ -34,7 +34,9 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.hsu.aidlab.meetrip.R;
 import com.hsu.aidlab.meetrip.Service.MsBandService;
+import com.hsu.aidlab.meetrip.Util.CommonUtils;
 import com.hsu.aidlab.meetrip.Util.Constants;
+import com.hsu.aidlab.meetrip.Util.DBHelper;
 import com.microsoft.band.BandClient;
 import com.microsoft.band.BandClientManager;
 import com.microsoft.band.BandException;
@@ -49,12 +51,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
     Button img_upload_btn;
     TextView tasStatusReceiver;
     public static Context thisContext;
+    private DBHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        dbHelper = new DBHelper(getBaseContext());
         controlBackgroundServices(this, Constants.FLAG_START);
 
         img_upload_btn = findViewById(R.id.img_upload_btn);
@@ -125,9 +129,18 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                uploadImagePathToTAS(storageLocationTag, file_name);
                 Toast toast = Toast.makeText(getApplicationContext(), "Image Upload Success", Toast.LENGTH_SHORT);
                 toast.show();
             }
         });
+    }
+
+    private void uploadImagePathToTAS(String storageLocationTag, String file_name) {
+
+        String sensorData = "{\"TAG\" :\"" + storageLocationTag + "\",\"ImgName\" :\"" + file_name + "\"}";
+        String query = "insert into sys_sensor (sensorCode, sensorValue) values ('Image', '" + sensorData + "')";
+        dbHelper.putData(query);
+        
     }
 }

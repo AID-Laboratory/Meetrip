@@ -3,6 +3,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -24,6 +25,14 @@ import com.facebook.accountkit.ui.LoginType;
 import com.hsu.aidlab.meetrip.R;
 import com.hsu.aidlab.meetrip.Util.CommonUtils;
 import com.hsu.aidlab.meetrip.Util.Constants;
+import com.microsoft.band.BandClient;
+import com.microsoft.band.BandClientManager;
+import com.microsoft.band.BandException;
+import com.microsoft.band.BandInfo;
+import com.microsoft.band.ConnectionState;
+import com.microsoft.band.sensors.HeartRateConsentListener;
+
+import java.lang.ref.WeakReference;
 
 public class LoginActivity extends Activity {
 
@@ -32,6 +41,7 @@ public class LoginActivity extends Activity {
     private Button btnNumber;
     private final static int REQUEST_CODE = 999;
 
+    private BandClient mBandClient = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -45,6 +55,9 @@ public class LoginActivity extends Activity {
 
         username = (EditText) findViewById(R.id.phoneno);
         btnNumber = (Button) findViewById(R.id.btnPhone);
+
+        final WeakReference<Activity> reference = new WeakReference<Activity>(this);
+        new HeartRateConsentTask().execute(reference);
 
         btnNumber.setOnClickListener(new OnClickListener() {
             @Override
@@ -189,6 +202,60 @@ public class LoginActivity extends Activity {
                 System.exit(1);
             }
         });
+    }
+
+    private class HeartRateConsentTask extends AsyncTask<WeakReference<Activity>, Void, Void> {
+        @Override
+        protected Void doInBackground(WeakReference<Activity>... params) {
+            try {
+                if (getConnectedBandClient()) {
+
+                    if (params[0].get() != null) {
+                        mBandClient.getSensorManager().requestHeartRateConsent(params[0].get(), new HeartRateConsentListener() {
+                            @Override
+                            public void userAccepted(boolean consentGiven) {
+                            }
+                        });
+                    }
+                } else {
+                    Log.wtf("MainActivity", "Band isn't connected. Please make sure bluetooth is on and the band is in range.\n");
+                }
+            } catch (BandException e) {
+                String exceptionMessage = "";
+                switch (e.getErrorType()) {
+                    case UNSUPPORTED_SDK_VERSION_ERROR:
+                        exceptionMessage = "Microsoft Health BandService doesn't support your SDK Version. Please update to latest SDK.\n";
+                        break;
+                    case SERVICE_ERROR:
+                        exceptionMessage = "Microsoft Health BandService is not available. Please make sure Microsoft Health is installed and that you have the correct permissions.\n";
+                        break;
+                    default:
+                        exceptionMessage = "Unknown error occured: " + e.getMessage() + "\n";
+                        break;
+                }
+                Log.wtf("MainActivity", exceptionMessage);
+
+            } catch (Exception e) {
+                Log.wtf("MainActivity", e.getMessage());
+            }
+            return null;
+        }
+    }
+
+    private boolean getConnectedBandClient() throws InterruptedException, BandException {
+        if (mBandClient == null) {
+            BandInfo[] devices = BandClientManager.getInstance().getPairedBands();
+            if (devices.length == 0) {
+                Log.wtf("MainActivity", "Band isn't paired with your phone.\n");
+                return false;
+            }
+            mBandClient = BandClientManager.getInstance().create(getBaseContext(), devices[0]);
+        } else if (ConnectionState.CONNECTED == mBandClient.getConnectionState()) {
+            return true;
+        }
+
+        Log.wtf("MainActivity", "Band is connecting...\n");
+        return ConnectionState.CONNECTED == mBandClient.connect().await();
     }
 
     @Override

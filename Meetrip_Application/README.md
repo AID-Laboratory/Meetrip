@@ -1,7 +1,6 @@
-# IoT-MS-Band_v2
+# Meetrip Android Application
  
-기존 MS Band Application에서 센서데이터 디스플레이 기능을 추가하였음
-
+제 6회 Mobius 개발자대회 안드로이드 어플리케이션
 ## 사용전 필수 사항
 1. Project Clone 및 import 후 Android Studio의 드롭다운 메뉴에서  
 1. File/Invalidate Caches   

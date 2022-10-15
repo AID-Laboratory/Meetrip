@@ -157,6 +157,8 @@ public class NCube extends Service {
         SharedPreferences sharedPreferences = context.getSharedPreferences(Constants.PREFERENCE_KEY, Context.MODE_PRIVATE);
         String userID = sharedPreferences.getString(Constants.USER_ID, "msband");
 
+        String applicationName = "Meetrip";
+
         String defaultXML = String.format("{\n" +
                         "\"useprotocol\": \"http\",\n" +
                         "\"cse\": {\n" +
@@ -170,76 +172,63 @@ public class NCube extends Service {
                         "\"ae\": {\n" +
                         "\"aeid\": \"S\",\n" +
                         "\"appid\": \"0.2.481.1.1\",\n" +
-                        "\"appname\": \"userID\",\n" +
+                        "\"appname\": \"" + applicationName + "\",\n" +
                         "\"appport\": \"9727\",\n" +
                         "\"bodytype\": \"xml\",\n" +
                         "\"tasport\": \"" + Constants.PORT + "\"\n" +
                         "},\n" +
 
                         "\"cnt\": [\n" +
-
-                        "{\n" +
-                        "\"parentpath\": \"/userID\",\n" +
-                        "\"ctname\": \"Band\"\n" +
-                        "},\n" +
-
-                        "{\n" +
-                        "\"parentpath\": \"/userID/Band\",\n" +
-                        "\"ctname\": \"" + Constants.TAG_HeartRate + "\"\n" +
-                        "},\n" +
-                        "{\n" +
-                        "\"parentpath\": \"/userID/Band\",\n" +
-                        "\"ctname\": \"" + Constants.TAG_SkinTemperature + "\"\n" +
-                        "},\n" +
-                        "{\n" +
-                        "\"parentpath\": \"/userID/Band\",\n" +
-                        "\"ctname\": \"" + Constants.TAG_Gsr + "\"\n" +
-                        "},\n" +
-                        "{\n" +
-                        "\"parentpath\": \"/userID/Band\",\n" +
-                        "\"ctname\": \"" + Constants.TAG_Barometer + "\"\n" +
-                        "},\n" +
-                        "{\n" +
-                        "\"parentpath\": \"/userID/Band\",\n" +
-                        "\"ctname\": \"" + Constants.TAG_Distance + "\"\n" +
-                        "},\n" +
-                        "{\n" +
-                        "\"parentpath\": \"/userID/Band\",\n" +
-                        "\"ctname\": \"" + Constants.TAG_Pedometer + "\"\n" +
-                        "},\n" +
-                        "{\n" +
-                        "\"parentpath\": \"/userID/Band\",\n" +
-                        "\"ctname\": \"" + Constants.TAG_Accelerometer + "\"\n" +
-                        "},\n" +
-                        "{\n" +
-                        "\"parentpath\": \"/userID/Band\",\n" +
-                        "\"ctname\": \"" + Constants.TAG_Gyroscope + "\"\n" +
-                        "},\n" +
-
-                        "{\n" +
-                        "\"parentpath\": \"/userID/Band\",\n" +
-                        "\"ctname\": \"" + Constants.TAG_UV + "\"\n" +
-                        "},\n" +
-                        "{\n" +
-                        "\"parentpath\": \"/userID/Band\",\n" +
-                        "\"ctname\": \"" + Constants.TAG_Contact + "\"\n" +
-                        "},\n" +
-                        "{\n" +
-                        "\"parentpath\": \"/userID/Band\",\n" +
-                        "\"ctname\": \"" + Constants.TAG_RRInterval + "\"\n" +
-                        "},\n" +
-                        "{\n" +
-                        "\"parentpath\": \"/userID/Band\",\n" +
-                        "\"ctname\": \"" + Constants.TAG_AmbientLight + "\"\n" +
-                        "},\n" +
-                        "{\n" +
-                        "\"parentpath\": \"/userID/Band\",\n" +
-                        "\"ctname\": \"" + Constants.TAG_Altimeter + "\"\n" +
-                        "},\n" +
-                        "{\n" +
-                        "\"parentpath\": \"/userID/Band\",\n" +
-                        "\"ctname\": \"" + Constants.TAG_Calories + "\"\n" +
-                        "}\n" +
+                        "{\"parentpath\": \"/" + applicationName + "\",\"ctname\": \"userID\"},\n" +
+                        "{\"parentpath\": \"/"+applicationName+"/userID\",\"ctname\": \"Band\"}," +         // MS Band Data
+                        "{\"parentpath\": \"/"+applicationName+"/userID\",\"ctname\": \"Coordinate\"}," +   // Lon Lat Alt
+                        "{\"parentpath\": \"/"+applicationName+"/userID\",\"ctname\": \"Image\"}," +        // Image Location and Tag
+                        "{\"parentpath\": \"/"+applicationName+"/userID\",\"ctname\": \"Weather\"}," +      // Weather and Airpollution
+                        "{\"parentpath\": \"/"+applicationName+"/userID/Band\",\"ctname\": \"" + Constants.TAG_HeartRate + "\"}," +
+                        "{\"parentpath\": \"/"+applicationName+"/userID/Band\",\"ctname\": \"" + Constants.TAG_SkinTemperature + "\"}," +
+                        "{\"parentpath\": \"/"+applicationName+"/userID/Band\",\"ctname\": \"" + Constants.TAG_Gsr + "\"}," +
+                        "{\"parentpath\": \"/"+applicationName+"/userID/Band\",\"ctname\": \"" + Constants.TAG_Barometer + "\"}" +
+//                        "{\n" +
+//                        "\"parentpath\": \"/userID/Band\",\n" +
+//                        "\"ctname\": \"" + Constants.TAG_Distance + "\"\n" +
+//                        "},\n" +
+//                        "{\n" +
+//                        "\"parentpath\": \"/userID/Band\",\n" +
+//                        "\"ctname\": \"" + Constants.TAG_Pedometer + "\"\n" +
+//                        "},\n" +
+//                        "{\n" +
+//                        "\"parentpath\": \"/userID/Band\",\n" +
+//                        "\"ctname\": \"" + Constants.TAG_Accelerometer + "\"\n" +
+//                        "},\n" +
+//                        "{\n" +
+//                        "\"parentpath\": \"/userID/Band\",\n" +
+//                        "\"ctname\": \"" + Constants.TAG_Gyroscope + "\"\n" +
+//                        "},\n" +
+//
+//                        "{\n" +
+//                        "\"parentpath\": \"/userID/Band\",\n" +
+//                        "\"ctname\": \"" + Constants.TAG_UV + "\"\n" +
+//                        "},\n" +
+//                        "{\n" +
+//                        "\"parentpath\": \"/userID/Band\",\n" +
+//                        "\"ctname\": \"" + Constants.TAG_Contact + "\"\n" +
+//                        "},\n" +
+//                        "{\n" +
+//                        "\"parentpath\": \"/userID/Band\",\n" +
+//                        "\"ctname\": \"" + Constants.TAG_RRInterval + "\"\n" +
+//                        "},\n" +
+//                        "{\n" +
+//                        "\"parentpath\": \"/userID/Band\",\n" +
+//                        "\"ctname\": \"" + Constants.TAG_AmbientLight + "\"\n" +
+//                        "},\n" +
+//                        "{\n" +
+//                        "\"parentpath\": \"/userID/Band\",\n" +
+//                        "\"ctname\": \"" + Constants.TAG_Altimeter + "\"\n" +
+//                        "},\n" +
+//                        "{\n" +
+//                        "\"parentpath\": \"/userID/Band\",\n" +
+//                        "\"ctname\": \"" + Constants.TAG_Calories + "\"\n" +
+//                        "}\n" +
                         "],\n" +
                         "\"sub\": [\n" +
 //                        "{\n" +
@@ -251,7 +240,7 @@ public class NCube extends Service {
                         "}\n",
 
                 Constants.DEF_DEST_IP,
-                Constants.DEF_DEST_PORT).replace("userID", userID.replace("+", "").trim() + "_Band");
+                Constants.DEF_DEST_PORT).replace("userID", userID.replace("+", "").trim());
         Log.d("xml", defaultXML);
         return defaultXML;
     }

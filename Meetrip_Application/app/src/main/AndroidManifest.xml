@@ -14,6 +14,11 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+
     <application
         android:usesCleartextTraffic="true"
         android:allowBackup="true"
@@ -31,7 +36,7 @@
             android:value="@string/maps_api_key" />
 
         <provider
-            android:name="android.support.v4.content.FileProvider"
+            android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"
             android:exported="false"
             android:grantUriPermissions="true">
@@ -80,6 +85,11 @@
 
         <activity
             android:name="com.hsu.aidlab.meetrip.Activity.LoginActivity"
+            android:label="@string/title_activity_login"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.hsu.aidlab.meetrip.Activity.MainActivity"
             android:label="@string/title_activity_login"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />

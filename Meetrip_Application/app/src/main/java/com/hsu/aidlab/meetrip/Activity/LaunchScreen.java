@@ -7,10 +7,10 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.firebase.FirebaseApp;
 import com.hsu.aidlab.meetrip.Util.CommonUtils;
 import com.hsu.aidlab.meetrip.Util.Constants;
 
@@ -37,6 +38,7 @@ public class LaunchScreen extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(com.hsu.aidlab.meetrip.R.layout.activity_launch_screen);
 

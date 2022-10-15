@@ -75,7 +75,7 @@ public class MSBandActivity extends Activity {
         setContentView(R.layout.activity_msband);
 //        dbHelper = new DBHelper(this);
 
-        controlBackgroundServices(MSBandActivity.this, Constants.FLAG_START);
+//        controlBackgroundServices(MSBandActivity.this, Constants.FLAG_START);
 
         txtStatus = (TextView) findViewById(R.id.txtStatus);
 
@@ -333,5 +333,4 @@ public class MSBandActivity extends Activity {
         });
     }
 }
-
 

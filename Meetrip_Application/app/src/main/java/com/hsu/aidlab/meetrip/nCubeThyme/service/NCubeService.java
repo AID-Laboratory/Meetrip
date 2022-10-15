@@ -1,5 +1,6 @@
 package com.hsu.aidlab.meetrip.nCubeThyme.service;
 
+import android.app.Application;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.Service;
@@ -9,7 +10,7 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.IBinder;
 import android.os.RemoteException;
-import android.support.v4.app.NotificationCompat;
+import androidx.core.app.NotificationCompat;
 import android.util.Log;
 
 import com.hsu.aidlab.meetrip.R;
@@ -81,10 +82,11 @@ public class NCubeService extends Service {
         }
 
         NotificationCompat.Builder notice = new NotificationCompat.Builder(getApplicationContext(), "1")
-                .setContentTitle("&CUBE Lavender Service")
-                .setContentText("&CUBE Lavender Service is running")
-                .setSmallIcon(R.drawable.sensor)
-                .setTicker("&CUBE Lavender Service is start!!")
+//                .setContentTitle("&CUBE Lavender Service")
+                .setContentTitle("Meetrip")
+                .setContentText("&CUBE Service is running")
+                .setSmallIcon(R.drawable.app_icon)
+                .setTicker("Meetrip &CUBE Service is start!!")
                 .setAutoCancel(false)
                 .setChannelId("1");
 

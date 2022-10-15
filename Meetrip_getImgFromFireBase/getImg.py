@@ -1,6 +1,5 @@
 
-import pyrebase
-
+import pyrebase # pip install pyrebase4
 
 config = {
     "apiKey": "AIzaSyD1qlgVMnRZS01Z2GDemd3dE6Z_InwRQTk",

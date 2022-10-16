@@ -1,16 +1,29 @@
 package com.hsu.aidlab.meetrip.Activity;
+import static com.hsu.aidlab.meetrip.Util.CommonUtils.showAlertDlg;
+
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.VideoView;
+
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.facebook.accountkit.Account;
 import com.facebook.accountkit.AccountKit;
@@ -33,9 +46,12 @@ import com.microsoft.band.ConnectionState;
 import com.microsoft.band.sensors.HeartRateConsentListener;
 
 import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.List;
 
 public class LoginActivity extends Activity {
 
+    private final int REQUEST_CODE_ASK_MULTIPLE_PERMISSIONS = 124;
     private Context context;
     EditText username;
     private Button btnNumber;
@@ -48,6 +64,11 @@ public class LoginActivity extends Activity {
     {
         super.onCreate(savedInstanceState);
         setContentView(com.hsu.aidlab.meetrip.R.layout.activity_login);
+
+        VideoView video_background = findViewById(R.id.video_background);
+        video_background.setVideoURI(Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.korea_bg_video_mid));
+        video_background.start();
+        video_background.setOnPreparedListener(onPreparedListener);
 
         this.context = LoginActivity.this;
 
@@ -72,13 +93,29 @@ public class LoginActivity extends Activity {
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     finish();
 
-                    Toast.makeText(context, "전화번호: " + userID, Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "User ID: " + userID, Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(context, "전화번호를 입력해 주세요.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "User ID를 입력해 주세요.", Toast.LENGTH_LONG).show();
                 }
             }
         });
+
+        new Handler().postDelayed(new Runnable()
+        {
+            @Override
+            public void run()
+            {
+              checkPermisson(CommonUtils.getPermissions());
+            }
+        }, 500);
     }
+
+    MediaPlayer.OnPreparedListener onPreparedListener = new MediaPlayer.OnPreparedListener() {
+        @Override
+        public void onPrepared(MediaPlayer mp) {
+            mp.setLooping(true);
+        }
+    };
 
     private void startLoginPage(LoginType loginType)
     {
@@ -256,6 +293,96 @@ public class LoginActivity extends Activity {
 
         Log.wtf("MainActivity", "Band is connecting...\n");
         return ConnectionState.CONNECTED == mBandClient.connect().await();
+    }
+
+    // TODO: Check permissions
+    private boolean checkPermisson(String[] permissions)
+    {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP)
+        {
+            int result;
+            List<String> listPermissionsNeeded = new ArrayList<>();
+
+            for (String permisson : permissions)
+            {
+                result = ContextCompat.checkSelfPermission(LoginActivity.this, permisson);
+                if (result != PackageManager.PERMISSION_GRANTED)
+                {
+                    listPermissionsNeeded.add(permisson);
+                }
+            }
+            if (!listPermissionsNeeded.isEmpty())
+            {
+                ActivityCompat.requestPermissions(this, listPermissionsNeeded.toArray(new String[listPermissionsNeeded.size()]),
+                        REQUEST_CODE_ASK_MULTIPLE_PERMISSIONS );
+                return false;
+            }
+            return true;
+        }
+        else
+        {
+          return true;
+        }
+    }
+
+    // TODO: Handle permission results
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults)
+    {
+        switch (requestCode)
+        {
+            case REQUEST_CODE_ASK_MULTIPLE_PERMISSIONS:
+            {
+                if(grantResults.length > 0)
+                {
+                    Integer grantedPermissions = 0;
+                    for(int i = 0; i < grantResults.length; i++)
+                    {
+                        if(grantResults[i] == PackageManager.PERMISSION_GRANTED)
+                        {
+                            ++grantedPermissions;
+                        }
+                    }
+
+                    if(grantedPermissions != grantResults.length)
+                    {
+                        checkMissedPermission();
+                    }
+                }
+                return;
+            }
+        }
+    }
+
+    //TODO: Promt user for check Missed permission
+    private void checkMissedPermission()
+    {
+        final AlertDialog dialog = showAlertDlg(LoginActivity.this, Constants.MISSED_PERMISSION, Constants.ASK_GRANT_MISSED_PERMISSIONS);
+        dialog.setButton(DialogInterface.BUTTON_NEGATIVE, Constants.NO, new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i)
+            {
+                try
+                {
+                    Thread.sleep(500);
+                    finish();
+                } catch (InterruptedException e)
+                {
+                    e.printStackTrace();
+                }
+            }
+        });
+        dialog.setButton(DialogInterface.BUTTON_POSITIVE, Constants.YES, new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i)
+            {
+                checkPermisson(CommonUtils.getPermissions());
+            }
+        });
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.show();
     }
 
     @Override

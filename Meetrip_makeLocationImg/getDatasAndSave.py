@@ -38,9 +38,9 @@ def getCourseData(PRTC, HOST, PORT, AENA, CONT, TIME, start_time, end_time):
     course_df = pd.DataFrame(zip(lon_array, lat_array))
     course_df.to_csv('./course_data.csv', sep=',', na_rep='NaN')
 
-    plt.plot(lon_array, lat_array)
+    plt.scatter(lon_array, lat_array, c="white")
     plt.axis(False)
-    plt.savefig(f'{AENA}_{CONT}_{TIME}.png')
+    plt.savefig(f'{AENA}_{CONT}_{TIME}.png', transparent = True)
 
 if __name__ == "__main__" :
 

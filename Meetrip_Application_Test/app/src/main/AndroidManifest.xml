@@ -19,6 +19,10 @@
 
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+
     <application
         android:usesCleartextTraffic="true"
         android:allowBackup="true"
@@ -140,6 +144,11 @@
             android:exported="true"
             android:stopWithTask="false">
         </service>
+        <service
+            android:name="com.hsu.aidlab.meetrip.Service.LocationService"
+            android:enabled="true"
+            android:exported="true"
+            android:stopWithTask="false"/>
     </application>
 
 </manifest>

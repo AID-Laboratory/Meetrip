@@ -11,12 +11,16 @@ import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.util.Log;
 import android.view.ContextThemeWrapper;
+
+import androidx.core.app.ActivityCompat;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import com.hsu.aidlab.meetrip.BroadcastReceiver.DetectConnection;
+import com.hsu.aidlab.meetrip.Service.LocationService;
 import com.hsu.aidlab.meetrip.Service.MsBandService;
 import com.hsu.aidlab.meetrip.Service.NCube;
 import com.hsu.aidlab.meetrip.Service.SynchronizeService;
@@ -173,6 +177,7 @@ public class CommonUtils
         serviceList.add(NCube.class);
         serviceList.add(SynchronizeService.class);
         serviceList.add(MsBandService.class);
+        serviceList.add(LocationService.class);
         return serviceList;
     }
 
@@ -190,11 +195,17 @@ public class CommonUtils
                 Manifest.permission.INTERNET,
                 Manifest.permission.BLUETOOTH,
                 Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.ACCESS_COARSE_LOCATION,
+                Manifest.permission.ACCESS_NETWORK_STATE
         };
         return permissions;
     }
 
+    public static boolean checkPermission(final Context context) {
+        return ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED;
+    }
 
     public static AlertDialog showAlertDlg(Activity activity, String title, String msg)
     {
@@ -206,6 +217,8 @@ public class CommonUtils
         builder.setMessage(msg).setTitle(title);
         return builder.create();
     }
+
+
 
 
 }

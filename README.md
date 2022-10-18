@@ -17,8 +17,8 @@
 - [x]  [영우] 파이어베이스 구독신청
 
 - [ ]  [상우, 재현] 위치정보
-    - [ ]  위치정보 Mobius로 전달 => 브랜치 파서 사용
-    - [ ]  weather, air pollution Mobius로 전달 => 위 브랜치랑 같은 브랜치 활용
+    - [x]  [영우] 위치정보 Mobius로 전달
+    - [ ]  weather, air pollution Mobius로 전달
 
 - [ ]  [재원, 영우] 이미지 촬영
     - [ ]  DCIM/Meetrip폴더 생성

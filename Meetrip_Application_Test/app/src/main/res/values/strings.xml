@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">Meetrip</string>
+    <string name="action_settings">Log out</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_login">Daily Log</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Нэвтрэх</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"е-мэйл хаяг баталгуулахын тулд дугаарын бүртгэл шалгах хэрэгтэй"</string>
+    <string name="yes">Үгүй</string>
+    <string name="no">Тийм</string>
+    <string name="appusage_denied">The permission for app usage statistic is denied. \n Click here to grant this permission</string>
+    <string name="error_unsupported_sdk">This feature unsupported for this device</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="fb_app_id">109607039835777</string>
+    <string name="account_kit_client_token">313ce875048cd14b2f34fa2d6c15f6c7</string>
+    <string name="ak_login_protocol_scheme">ak313ce875048cd14b2f34fa2d6c15f6c7</string>
+
+    <string name="defaultIp">192.168.5.77</string>
+    <string name="defaultPort">7579</string>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="title_activity_google_map">GoogleMapActivity</string>
+
+    <string name="maps_api_key">AIzaSyCJP2WmngpQQwxSWZNqXNAnJN0ldxR5DgM</string>
+<!--    <string name="steps">Steps to use this app: \n-->
+<!--        1. Pair your band with the phone\n-->
+<!--        2. Make sure Microsoft Health is installed\n-->
+<!--        3. Give the application permission to access your heart rate-->
+<!--        data by pressing the Heart Rate Consent button and then pressing-->
+<!--        yes on the dialog that pops up.\n-->
+<!--        4. Press the Start button\n-->
+<!--        5. Data from the heart rate sensor should be displayed.</string>-->
+    <string name="steps">Steps to use this app: \n
+        1. Pair your band with the phone\n
+        2. Make sure Microsoft Health is installed\n
+        3. Give the application permission\n
+        4. Heart Rate Consent yes\n
+        5. Data should be display</string>
+    <string name="start">Start</string>
+    <string name="consent">Heart Rate Consent</string>
+</resources>

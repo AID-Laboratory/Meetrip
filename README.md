@@ -16,11 +16,11 @@
 - [x]  [영우] UserID에 따라 CNT구분하기
 - [x]  [영우] 파이어베이스 구독신청
 
-- [ ]  [상우, 재현] 위치정보
+- [x]  [영우] 위치정보
     - [x]  [영우] 위치정보 Mobius로 전달
-    - [ ]  weather, air pollution Mobius로 전달
+    - [x]  [영우] weather, air pollution Mobius로 전달
 
-- [ ]  [재원, 영우] 이미지 촬영
+- [ ]  [재현, 상우, 재원, 영우] 이미지 촬영
     - [ ]  DCIM/Meetrip폴더 생성
     - [ ]  [재원] 사진촬영
     - [ ]  [재원] DCIM/Meetrip폴더에 사진 저장

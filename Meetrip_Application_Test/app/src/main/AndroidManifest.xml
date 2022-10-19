@@ -5,23 +5,21 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-feature android:name="android.hardware.sensor.proximity" />
-
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="com.microsoft.band.service.access.BIND_BAND_SERVICE" />
-
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
-
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION"/>
 
     <application
         android:usesCleartextTraffic="true"
@@ -146,6 +144,11 @@
         </service>
         <service
             android:name="com.hsu.aidlab.meetrip.Service.LocationService"
+            android:enabled="true"
+            android:exported="true"
+            android:stopWithTask="false"/>
+        <service
+            android:name="com.hsu.aidlab.meetrip.Service.WeatherService"
             android:enabled="true"
             android:exported="true"
             android:stopWithTask="false"/>

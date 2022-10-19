@@ -34,6 +34,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.hsu.aidlab.meetrip.R;
 import com.hsu.aidlab.meetrip.Service.MsBandService;
+import com.hsu.aidlab.meetrip.Service.WeatherService;
 import com.hsu.aidlab.meetrip.Util.CommonUtils;
 import com.hsu.aidlab.meetrip.Util.Constants;
 import com.hsu.aidlab.meetrip.Util.DBHelper;

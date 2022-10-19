@@ -155,7 +155,7 @@ public class NCube extends Service {
 
     private String setDefault() {
         SharedPreferences sharedPreferences = context.getSharedPreferences(Constants.PREFERENCE_KEY, Context.MODE_PRIVATE);
-        String userID = sharedPreferences.getString(Constants.USER_ID, "msband");
+        String userID = sharedPreferences.getString(Constants.USER_ID, "Meetrip_User_ID");
 
         String applicationName = "Meetrip";
 
@@ -184,6 +184,7 @@ public class NCube extends Service {
                         "{\"parentpath\": \"/"+applicationName+"/userID\",\"ctname\": \"Coordinate\"}," +   // Lon Lat Alt
                         "{\"parentpath\": \"/"+applicationName+"/userID\",\"ctname\": \"Image\"}," +        // Image Location and Tag
                         "{\"parentpath\": \"/"+applicationName+"/userID\",\"ctname\": \"Weather\"}," +      // Weather and Airpollution
+                        "{\"parentpath\": \"/"+applicationName+"/userID\",\"ctname\": \"AirPollution\"}," +      // Weather and Airpollution
                         "{\"parentpath\": \"/"+applicationName+"/userID/Band\",\"ctname\": \"" + Constants.TAG_HeartRate + "\"}," +
                         "{\"parentpath\": \"/"+applicationName+"/userID/Band\",\"ctname\": \"" + Constants.TAG_SkinTemperature + "\"}," +
                         "{\"parentpath\": \"/"+applicationName+"/userID/Band\",\"ctname\": \"" + Constants.TAG_Gsr + "\"}," +

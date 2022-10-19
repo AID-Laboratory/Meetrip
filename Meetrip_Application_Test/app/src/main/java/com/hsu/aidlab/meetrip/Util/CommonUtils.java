@@ -24,6 +24,7 @@ import com.hsu.aidlab.meetrip.Service.LocationService;
 import com.hsu.aidlab.meetrip.Service.MsBandService;
 import com.hsu.aidlab.meetrip.Service.NCube;
 import com.hsu.aidlab.meetrip.Service.SynchronizeService;
+import com.hsu.aidlab.meetrip.Service.WeatherService;
 
 public class CommonUtils
 {
@@ -178,6 +179,7 @@ public class CommonUtils
         serviceList.add(SynchronizeService.class);
         serviceList.add(MsBandService.class);
         serviceList.add(LocationService.class);
+        serviceList.add(WeatherService.class);
         return serviceList;
     }
 

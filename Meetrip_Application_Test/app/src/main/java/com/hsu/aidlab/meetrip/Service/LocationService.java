@@ -16,6 +16,8 @@ import androidx.annotation.Nullable;
 import com.hsu.aidlab.meetrip.Util.CommonUtils;
 import com.hsu.aidlab.meetrip.Util.DBHelper;
 
+import weka.core.stopwords.Null;
+
 //import me.hgko.networkinfo.domain.LteSignalInfo;
 //import me.hgko.networkinfo.manager.DataManager;
 //import me.hgko.networkinfo.util.CommonUtils;
@@ -46,6 +48,9 @@ public class LocationService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
+        locationLatitude = 0.0;
+        locationLongitude = 0.0;
+
         dbHelper = new DBHelper(getBaseContext());
         locationManager = (LocationManager) getBaseContext().getSystemService(Context.LOCATION_SERVICE);
         initLocation();
@@ -54,6 +59,20 @@ public class LocationService extends Service {
 
         return START_STICKY;
     }
+
+//    public static String getLocation() {
+//
+//        String resultString = "";
+//
+//        if (locationLatitude != 0.0 && locationLongitude != 0.0) {
+//            resultString = locationLongitude + "," + locationLongitude;
+//        } else {
+//            resultString = "error";
+//        }
+//
+//
+//        return resultString;
+//    }
 
     LocationListener locationListener = new LocationListener() {
         @Override

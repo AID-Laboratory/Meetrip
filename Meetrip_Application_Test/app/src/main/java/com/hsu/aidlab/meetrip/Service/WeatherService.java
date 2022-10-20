@@ -177,7 +177,8 @@ public class WeatherService extends Service {
 
     private void getWeatherData(double lng, double lat) {
 
-        String API_KEY = "e1eadf27878982a862a09bf281bff4f1";
+//        String API_KEY = "e1eadf27878982a862a09bf281bff4f1";
+        String API_KEY = "eaf2be36c7b1596637c1fb60acab4ea1";
         String weatherURL = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lng + "&units=metric&appid=" + API_KEY;
         String airPollutionURL = "http://api.openweathermap.org/data/2.5/air_pollution?lat=" + lat + "&lon=" + lng + "&appid=" + API_KEY;
 

@@ -88,10 +88,12 @@
 <!--            android:name="com.hsu.aidlab.meetrip.Activity.LoginActivity"-->
 <!--            android:label="@string/title_activity_login"-->
 <!--            android:theme="@style/AppTheme.NoActionBar" />-->
+
+
+<!--        android:screenOrientation="landscape"-->
         <activity
             android:name="com.hsu.aidlab.meetrip.Activity.MainActivity"
             android:label="@string/title_activity_login"
-            android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar.NoNotiBar" />
 
         <service

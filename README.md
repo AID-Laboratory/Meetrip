@@ -20,13 +20,15 @@
     - [x]  [영우] 위치정보 Mobius로 전달
     - [x]  [영우] weather, air pollution Mobius로 전달
 
-- [ ]  [재현, 상우, 재원, 영우] 이미지 촬영
-    - [ ]  DCIM/Meetrip폴더 생성
-    - [ ]  [재원] 사진촬영
-    - [ ]  [재원] DCIM/Meetrip폴더에 사진 저장
-    - [ ]  [재원] 저장위치 및 이름 string으로 리턴
+- [x]  [재현, 상우, 재원, 영우] 이미지 촬영
+    - [x]  DCIM/Meetrip폴더 생성
+    - [x]  [재원] 사진촬영
+    - [x]  [재원] DCIM/Meetrip폴더에 사진 저장
+    - [x]  [재원] 저장위치 및 이름 string으로 리턴
     - [x]  [영우] 이미지 firebase로 전달
     - [x]  [영우] 이미지 저장 위치 Mobius로 전달
+    
+- [ ]  앱 디자인 수정 및 사용성 증진
 
 ### Python Code On Server
 

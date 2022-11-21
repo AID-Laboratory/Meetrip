@@ -16,6 +16,7 @@ from utility import parsJson
 from utility import fire_download
 from utility import image_resizer
 from npc_ctrl import setPhoto
+from npc_ctrl import erase
 
 """
 declare a constant
@@ -24,7 +25,12 @@ BROKER_ADDR = "203.252.23.46"                       # mosquitto hostname or url
 AE_NAME     = "Meetrip"                              # AE Name for Mobius Server
 CLIENT_ID   = str(StringGenerator("[\l\d]{32}"))    # Client ID for MQTT
 
+post_count = 1
+erase_bool = False
+
 def onMessage(client, userData, message):
+
+    global erase_bool, post_count
 
     # testMQTT(client, userData, message)
 
@@ -55,8 +61,19 @@ def onMessage(client, userData, message):
             path_local = "./"
             downloaded_file = fire_download(path_cloud, path_local, file_name)
             resized_file = image_resizer(downloaded_file)
-            # print("resized_file :", resized_file)
-            setPhoto(resized_file, 1)
+            print("resized_file :", resized_file)
+            
+            if erase_bool == True :
+            
+                erase(post_count)
+            
+            setPhoto(resized_file, post_count)
+            post_count += 1
+            
+            if post_count >= 9 :
+            
+                post_count = 1
+                erase_bool = True
 
         elif containerArr[4] == "GSR_SUB" :
             pass

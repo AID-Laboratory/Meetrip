@@ -34,7 +34,7 @@ def image_resizer(img_f_name:str):
 
     Image.open(img_f_name).resize((size, size)).save(resized_img_name)
 
-    return resized_img_name
+    return resized_img_name.replace("./Minecraft_Server/plugins/ImageMaps/images/","")
 
 
 def fire_download(path_cloud:str, path_local:str, file_name:str):

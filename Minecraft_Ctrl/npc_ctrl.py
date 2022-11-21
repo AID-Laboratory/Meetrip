@@ -12,7 +12,7 @@ keyboard = KeyController()
 
 mc = Minecraft.create()
 
-npc_player_id = mc.getPlayerEntityId("aid_lab_Lee")
+npc_player_id = mc.getPlayerEntityId("LeeYoungWoo_")
 
 angle = mc.player.getRotation()
 
@@ -44,7 +44,7 @@ def setPhoto(img_name:str, frame_num:int):
     mouse.press(Button.right)
     mouse.release(Button.right)
 
-    time.sleep(0.3)
+    time.sleep(10)
 
     mc.entity.setPos(npc_player_id, calpos(17, 70, 42))
 
@@ -116,21 +116,39 @@ def erase(frame_num=int):
 
     time.sleep(1)
 
-    x, y, z = get_frame_info(1)
-
-    mc.setBlock(calpos(x+1, y-3, z+3), block.WOOL, 2)
-    mc.entity.setPos(npc_player_id, calpos(x+1, y-2, z+3))
-
-    keyboard.press('/')
-    time.sleep(0.1)
+    x, y, z = get_frame_info(frame_num)
     
-    keyboard.type('kill @e[type=minecraft:glow_item_frame, distance=..7]')
-    keyboard.press(Key.enter)
+    if frame_num < 5:
 
-    time.sleep(0.1)
+        mc.setBlock(calpos(x+1, y-3, z+3), block.WOOL, 2)
+        mc.entity.setPos(npc_player_id, calpos(x+1, y-2, z+3))
 
-    mc.setBlock(calpos(x+1, y-3, z+3), block.AIR)
-    mc.entity.setPos(npc_player_id, calpos(17, 70, 42))
+        keyboard.press('/')
+        time.sleep(0.1)
+        
+        keyboard.type('kill @e[type=minecraft:glow_item_frame, distance=..7]')
+        keyboard.press(Key.enter)
+
+        time.sleep(0.1)
+
+        mc.setBlock(calpos(x+1, y-3, z+3), block.AIR)
+        mc.entity.setPos(npc_player_id, calpos(17, 70, 42))
+
+    elif frame_num > 4:
+
+        mc.setBlock(calpos(x, y-2, z-3), block.WOOL, 2)
+        mc.entity.setPos(npc_player_id, calpos(x, y-1, z-3))
+
+        keyboard.press('/')
+        time.sleep(0.1)
+        
+        keyboard.type('kill @e[type=minecraft:glow_item_frame, distance=..7]')
+        keyboard.press(Key.enter)
+
+        time.sleep(0.1)
+
+        mc.setBlock(calpos(x, y-2, z-3), block.AIR)
+        mc.entity.setPos(npc_player_id, calpos(17, 70, 42))
 
 time.sleep(3)
 erase(1)

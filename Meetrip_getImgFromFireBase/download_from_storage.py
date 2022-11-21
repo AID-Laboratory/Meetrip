@@ -19,10 +19,11 @@ def file_download(path_cloud, path_local, file_name):
     # Download
     storage.child(path_cloud).download(path = path_local, filename = file_name)
 
-if __name__ == "__main__" :
+""" How to Use Function """
+# if __name__ == "__main__" :
 
-    file_name = "SampleImage_001.jpg"
-    path_cloud = "Sample Images/" + file_name
-    path_local = "./"
+#     file_name = "SampleImage_001.jpg"
+#     path_cloud = "Sample Images/" + file_name
+#     path_local = "./"
     
-    file_download(path_cloud, path_local, file_name)
+#     file_download(path_cloud, path_local, file_name)

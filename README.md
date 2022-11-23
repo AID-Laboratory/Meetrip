@@ -1,1 +1,2 @@
-# Meetrip for oneM2M Hackathon
+# Meetrip
+for 6th oneM2M Hackathon Project

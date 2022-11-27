@@ -17,6 +17,7 @@ from utility import fire_download
 from utility import image_resizer
 from npc_ctrl import setPhoto
 from npc_ctrl import erase
+from npc_ctrl import setSignPost
 
 """
 declare a constant
@@ -26,11 +27,10 @@ AE_NAME     = "Meetrip"                              # AE Name for Mobius Server
 CLIENT_ID   = str(StringGenerator("[\l\d]{32}"))    # Client ID for MQTT
 
 post_count = 1
-erase_bool = False
 
 def onMessage(client, userData, message):
 
-    global erase_bool, post_count
+    global post_count
 
     # testMQTT(client, userData, message)
 
@@ -48,7 +48,7 @@ def onMessage(client, userData, message):
             pass
         elif containerArr[4] == "Img_SUB" :
             
-            if type(content) == str :
+            if type(content) != dict :
             
                 contentObj = json.loads(content.replace("\'", "\""))
             
@@ -63,17 +63,15 @@ def onMessage(client, userData, message):
             resized_file = image_resizer(downloaded_file)
             print("resized_file :", resized_file)
             
-            if erase_bool == True :
-            
-                erase(post_count)
-            
+            erase(post_count)
             setPhoto(resized_file, post_count)
+            setSignPost(post_count)
+            
             post_count += 1
             
             if post_count >= 9 :
             
                 post_count = 1
-                erase_bool = True
 
         elif containerArr[4] == "GSR_SUB" :
             pass

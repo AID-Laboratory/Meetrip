@@ -17,6 +17,32 @@ config = {
 firebase = pyrebase.initialize_app(config)
 storage = firebase.storage()
 
+
+
+def getLaCin(HOST:str, AE_NAME:str, CNT_RN:str):
+    url = "http://" + HOST + ":7579/Mobius/" + AE_NAME + "/" + CNT_RN + "/la"
+
+    payload={}
+    headers = {
+    'Accept': 'application/json',
+    'X-M2M-RI': '12345',
+    'X-M2M-Origin': 'S' + AE_NAME
+    }
+
+    response = requests.request("GET", url, headers=headers, data=payload)
+    jsonObject = json.loads(response.text)
+    
+    # print(response.text)
+
+    content = jsonObject.get("m2m:cin").get("con")
+
+    create_time = jsonObject.get("m2m:cin").get("ct")
+    # create_time = ct2kst(create_time)
+    
+    # print(f"GET CIN(LA) | AE : {AE_NAME}, CNT : {CNT_RN}, CON : {content}, CT_Date : {create_time[0]}, CT_Date : {create_time[1]}")
+
+    return content
+
 def image_resizer(img_f_name:str):
 
     """
